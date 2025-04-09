@@ -21,11 +21,13 @@
         }}'>
 
         <div class="swiper-wrapper">
+
+            
             {% for slide in homeslider %}
             <div class="swiper-slide">
                 <div class="image-layer" style="background-image: url('{{ slide.image.url }}');">
                 </div>
-                <!-- /.image-layer -->
+                
                 <div class="main-slider-border"></div>
                 <div class="main-slider-border main-slider-border-two"></div>
                 <div class="main-slider-border main-slider-border-three"></div>
@@ -42,7 +44,7 @@
                         <div class="col-lg-12">
                             <div class="main-slider__content">
                                 <p>Welcome to our digital marketing agency</p>
-                                <h2>{{slide.title}}</h2>
+                                <h2>{{ slide.title }}</h2>
                                 <a href="about.html" class="thm-btn">Discover More</a>
                             </div>
                         </div>
@@ -51,6 +53,7 @@
             </div>
             
             {% endfor %}
+            
         </div>
         <!-- If we need navigation buttons -->
         <div class="swiper-pagination" id="main-slider-pagination"></div>
@@ -66,7 +69,7 @@
 </section>
 <!--Main Slider End-->
 
-<!--Services One Start-->
+<!-- Services One Start-->
 <section class="services-one">
     <div class="services-one-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"><img
             class="float-bob-x" src="assets/images/shapes/services-one-shape.png" alt=""></div>
@@ -106,36 +109,6 @@
                                     class="icon-right-arrow"></span></a>
                         </li>
                         {% endfor %}
-                        <!-- <li class="services-one__single wow fadeInUp" data-wow-delay="200ms">
-                            <div class="services-one__icon">
-                                <span class="icon-growth"></span>
-                            </div>
-                            <div class="services-one__count"></div>
-                            <h3 class="services-one__title"><a href="graphic-design.html">Visual <br> graphic
-                                    design</a></h3>
-                            <a class="services-one__arrow" href="graphic-design.html"><span
-                                    class="icon-right-arrow"></span></a>
-                        </li>
-                        <li class="services-one__single wow fadeInUp" data-wow-delay="300ms">
-                            <div class="services-one__icon">
-                                <span class="icon-webpage"></span>
-                            </div>
-                            <div class="services-one__count"></div>
-                            <h3 class="services-one__title"><a href="digital-marketing.html">strategy & <br>
-                                    Digital marketing</a></h3>
-                            <a class="services-one__arrow" href="digital-marketing.html"><span
-                                    class="icon-right-arrow"></span></a>
-                        </li>
-                        <li class="services-one__single wow fadeInUp" data-wow-delay="400ms">
-                            <div class="services-one__icon">
-                                <span class="icon-front-end"></span>
-                            </div>
-                            <div class="services-one__count"></div>
-                            <h3 class="services-one__title"><a href="social-marketing.html">effective <br>
-                                    business growth</a></h3>
-                            <a class="services-one__arrow" href="social-marketing.html"><span
-                                    class="icon-right-arrow"></span></a>
-                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -150,6 +123,148 @@
         </div>
     </div>
 </section>
-<!--Services One End-->
+<!--Services One End -->
+
+<!--Get To Know Start-->
+<section class="get-to-know">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="get-to-know__left wow slideInLeft" data-wow-delay="100ms"
+                    data-wow-duration="2500ms">
+                    <div class="get-to-know__img">
+                        <img src="{% static 'assets/images/resources/get-to-know-img.jpg' %}" alt="">
+                        <div class="get-to-know__video-link">
+                            <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+                                <div class="get-to-know__video-icon">
+                                    <span class="icon-play-button"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="get-to-know__right">
+                    <div class="get-to-know-big-text">Qutiiz</div>
+                    <div class="section-title text-left">
+                        <span class="section-title__tagline">get to know us</span>
+                        <h2 class="section-title__title">We’re ready to grow your business with us</h2>
+                    </div>
+                    <p class="get-to-know__text-1">We’re committed to delivering the best digital marketing for
+                        your businesses</p>
+                    <p class="get-to-know__text-2">There are many variations of passages of Lorem Ipsum
+                        available, but the majority have suffered alteration in some form, simply free text by
+                        injected humour, or randomised.</p>
+                    <div class="get-to-know__progress">
+                        <div class="get-to-know__progress-single">
+                            <h4 class="get-to-know__progress-title">Digital marketing</h4>
+                            <div class="bar">
+                                <div class="bar-inner count-bar" data-percent="70%">
+                                    <div class="count-text">70%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="get-to-know__person">
+                        <div class="get-to-know__person-img">
+                            <img src="{% static 'assets/images/resources/get-to-know-person-img.jpg' %}" alt="">
+                        </div>
+                        <div class="get-to-know__person-content">
+                            <h2 class="get-to-know__person-name">John Smith</h2>
+                            <p class="get-to-know__person-founder">CEO & co Founder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Get To Know End-->
+
+<!--Brand One Start-->
+<section class="brand-one">
+    <div class="container">
+        <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
+            "0": {
+                "spaceBetween": 30,
+                "slidesPerView": 2
+            },
+            "375": {
+                "spaceBetween": 30,
+                "slidesPerView": 2
+            },
+            "575": {
+                "spaceBetween": 30,
+                "slidesPerView": 3
+            },
+            "767": {
+                "spaceBetween": 50,
+                "slidesPerView": 4
+            },
+            "991": {
+                "spaceBetween": 50,
+                "slidesPerView": 5
+            },
+            "1199": {
+                "spaceBetween": 100,
+                "slidesPerView": 5
+            }
+        }}'>
+        
+            <div class="swiper-wrapper">
+                {% for partner in ourpartner %}
+                <div class="swiper-slide">
+                    <img src="{{ partner.image.url }}" alt="">
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!--Brand One End-->
+
+<!--Project One Start-->
+<section class="project-one">
+    <div class="container">
+        <div class="section-title text-center">
+            <span class="section-title__tagline">recent projects</span>
+            <h2 class="section-title__title">work showcase</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <ul class="project-filter style1 post-filter has-dynamic-filters-counter list-unstyled">
+                    <li data-filter=".filter-item" class="active"><span class="filter-text">All</span></li>
+                    <li data-filter=".bra"><span class="filter-text">Branding</span></li>
+                    <li data-filter=".photo"><span class="filter-text">Photography</span></li>
+                    <li data-filter=".web"><span class="filter-text">Web Design</span></li>
+                    <li data-filter=".app"><span class="filter-text last-pd-none">Apps</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row filter-layout masonary-layout">
+            {% for pj in projects %}
+            <div class="col-xl-3 col-lg-6 col-md-6 filter-item bra photo web">
+                <!--Portfolio One Single-->
+                <div class="project-one__single">
+                    <div class="project-one__img">
+                        <img src="{{ pj.image.url }}" alt="">
+                        <div class="project-one__hover project-one__hover-pl-40">
+                            <p class="project-one__tagline">Graphic</p>
+                            <h3 class="project-one__title"><a href="project-details.html">{{ pj.name }}</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+<!--Project One End-->
+
+
 
 {% endblock %}
