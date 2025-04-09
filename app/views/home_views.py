@@ -7,6 +7,11 @@ def HomeSliderList(request, category_slug=None):
     ourservices = OurServiceModel.objects.all()
     ourservicelists = OurServiceListModel.objects.all()
     ourpartners = OurPartnerModel.objects.all()
+    counters = CounterModel.objects.all()
+    whychooseus = WhyChooseUsModel.objects.all()
+    ourteam = OurTeamMemberModel.objects.all()
+    customerfeedback = CustomerFeedbackModel.objects.all()
+    blog = BlogModel.objects.all()
     
     categories = None
     projects = None
@@ -26,6 +31,11 @@ def HomeSliderList(request, category_slug=None):
         "ourpartner":ourpartners,
         "projects":projects,
         "project_count":project_count,
+        "counter":counters,
+        "whychooseus":whychooseus,
+        "ourteam":ourteam,
+        "customerfeedback":customerfeedback,
+        "blogs":blog
     }
     return render(request, 'index.html', context)
 

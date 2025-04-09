@@ -103,7 +103,7 @@
                                 <img src="{{ sl.image.url }}" alt="">
                             </div>
                             <div class="services-one__count"></div>
-                            <h3 class="services-one__title"><a href="website-development.html"> {{ sl.name }}
+                            <h3 class="services-one__title"><a href="website-development.html"> {{ sl.name|linebreaksbr }}
                                     </a></h3>
                             <a class="services-one__arrow" href="website-development.html"><span
                                     class="icon-right-arrow"></span></a>
@@ -264,6 +264,516 @@
     </div>
 </section>
 <!--Project One End-->
+
+ <!--Counter One Start-->
+ <section class="counter-one">
+    <div class="counter-one-shape-1"></div>
+    <div class="counter-one-shape-2"></div>
+    <div class="counter-one-shape-3"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <ul class="list-unstyled counter-one__list">
+                    {% for count in counter %}
+                    <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="counter-one__icon">
+                            <img src="{{ count.image.url }}" alt="">
+                        </div>
+                        <h3 class="odometer" data-count="{{ count.count_number }}">00</h3>
+                        <p class="counter-one__text">{{ count.name }}</p>
+                    </li>
+                    {% endfor %}
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Counter One End-->
+
+ <!--Why Choose One Start-->
+ <section class="why-choose-one">
+    <div class="container">
+        <div class="row">
+            {% for choose in whychooseus %}
+            <div class="col-xl-6 col-lg-6">
+                <div class="why-choose-one__left wow fadeInLeft" data-wow-delay="100ms"
+                    data-wow-duration="2500ms">
+                    <div class="why-choose-one__img">
+                        <img src="{{ choose.image_1.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="why-choose-one__right">
+                    <div class="section-title text-left">
+                        <span class="section-title__tagline">company benefits</span>
+                        <h2 class="section-title__title">{{ choose.title }}</h2>
+                    </div>
+                    <p class="why-choose-one__text">{{ choose.content }}</p>
+                    <div class="why-choose-one__bottom">
+                        <div class="why-choose-one__bottom-img">
+                            <img src="{{ choose.image_2.url }}" alt="">
+                        </div>
+                        <ul class="list-unstyled why-choose-one__points">
+                            <li>
+                                <div class="icon">
+                                    <span class="icon-draw-check-mark"></span>
+                                </div>
+                                <div class="text">
+                                    <p>Nsectetur cing elit</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <span class="icon-draw-check-mark"></span>
+                                </div>
+                                <div class="text">
+                                    <p>Suspe ndisse agittis leo</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <span class="icon-draw-check-mark"></span>
+                                </div>
+                                <div class="text">
+                                    <p>Aliquam tristique exe</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <span class="icon-draw-check-mark"></span>
+                                </div>
+                                <div class="text">
+                                    <p>Nisl sit amet tellus</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--Why Choose One End-->
+
+<!--Team One Start-->
+<section class="team-one">
+    <div class="team-one-container">
+        <div class="section-title text-center">
+            <span class="section-title__tagline">our team members</span>
+            <h2 class="section-title__title">Meet expert people</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="team-one__carousel owl-theme owl-carousel">
+                    <!--Team One Single-->
+                    {% for team in ourteam %}
+                    <div class="team-one__single">
+                        <div class="team-one__img">
+                            <img src="{{ team.image.url }}" alt="">
+                        </div>
+                        <div class="team-one__content">
+                            <h4 class="team-one__name">{{ team.name }}</h4>
+                            <p class="team-one__title">{{ team.position }}</p>
+                        </div>
+                        <div class="team-one__hover">
+                            <h4 class="team-one__hover-name">{{ team.name }}</h4>
+                            <p class="team-one__hover-title">{{ team.position }}</p>
+                            <div class="team-one__social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Team One End-->
+
+<!--Testimonial One Start-->
+<section class="testimonial-one">
+    <div class="testimonial-one__inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="testimonial-one__left">
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline">customer feedbacks</span>
+                            <h2 class="section-title__title">what they’re talking about company?</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-one__right">
+            <div class="testimonial-one__carousel owl-theme owl-carousel">
+                <!--Testimonial One Single-->
+                {% for feedback in customerfeedback %}
+                <div class="testimonial-one__single">
+                    <p class="testimonial-one__text">{{ feedback.content }}</p>
+                    <div class="testimonial-one__client-info">
+                        <div class="testimonial-one__client-img">
+                            <img src="{{ feedback.image.url }}" alt="">
+                            <div class="testimonial-one__quote">
+                                <img src="{% static 'assets/images/testimonial/testimonial-one-quote.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="testimonial-one__client-details">
+                            <h4 class="testimonial-one__client-name">{{ feedback.name }}</h4>
+                            <p class="testimonial-one__client-title">{{ feedback.position }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+
+        <div class="owl-theme">
+            <div class="owl-controls">
+                <div class="custom-nav owl-nav"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--Testimonial One End-->
+
+<!--Qutiiz Ready Start-->
+<section class="qutiiz-ready">
+    <div class="qutiiz-ready-bg-box">
+        <div class="qutiiz-ready-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+            style="background-image: url({% static 'assets/images/backgrounds/qutiiz-ready-bg.jpg' %})"></div>
+    </div>
+    <div class="container">
+        <div class="qutiiz-ready__inner">
+            <div class="qutiiz-ready__icon">
+                <span class="icon-wealth"></span>
+            </div>
+            <h2 class="qutiiz-ready__title">qutiiz is a ready to <span>protect</span> <br> your businesses</h2>
+        </div>
+    </div>
+</section>
+<!--Qutiiz Ready End-->
+
+<!--Financial Advice Start-->
+<section class="financial-advice">
+    <div class="financial-advice-bg"
+        style="background-image: url(assets/images/shapes/financial-advice-shape.png)"></div>
+    <div class="container">
+        <div class="financial-advice__tab-box tabs-box">
+            <ul class="tab-buttons clearfix list-unstyled">
+                <li data-tab="#business" class="tab-btn"><span>Business Growth</span></li>
+                <li data-tab="#financial" class="tab-btn active-btn"><span>Financial Advices</span></li>
+                <li data-tab="#soltution" class="tab-btn"><span>marketing soltution</span></li>
+            </ul>
+            <div class="tabs-content">
+                <!--tab-->
+                <div class="tab" id="business">
+                    <div class="tabs-content__inner">
+                        <div class="row">
+                            <div class="col-xl-5">
+                                <div class="tabs-content__left">
+                                    <ul class="list-unstyled tabs-content__points">
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h4>Highest Success Rates</h4>
+                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
+                                                    quis bibendum.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h4>we grow businesses</h4>
+                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
+                                                    quis bibendum.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-7">
+                                <div class="tabs-content__right">
+                                    <div class="tabs-content__experience-box">
+                                        <div class="tabs-content__experience-content">
+                                            <div class="tabs-content__experience-icon">
+                                                <span class="icon-consulting"></span>
+                                            </div>
+                                            <h3 class="tabs-content__experience-title">We have over 18 years of
+                                                experience</h3>
+                                            <a href="about.html" class="tabs-content__experience-btn">Read
+                                                More</a>
+                                        </div>
+                                        <div class="tabs-content__experience-img">
+                                            <img src="assets/images/resources/tabs-content-experience-img.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--tab-->
+                <div class="tab active-tab" id="financial">
+                    <div class="tabs-content__inner">
+                        <div class="row">
+                            <div class="col-xl-5">
+                                <div class="tabs-content__left">
+                                    <ul class="list-unstyled tabs-content__points">
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h4>Highest Success Rates</h4>
+                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
+                                                    quis bibendum.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h4>we grow businesses</h4>
+                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
+                                                    quis bibendum.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-7">
+                                <div class="tabs-content__right">
+                                    <div class="tabs-content__experience-box">
+                                        <div class="tabs-content__experience-content">
+                                            <div class="tabs-content__experience-icon">
+                                                <span class="icon-consulting"></span>
+                                            </div>
+                                            <h3 class="tabs-content__experience-title">We have over 18 years of
+                                                experience</h3>
+                                            <a href="about.html" class="tabs-content__experience-btn">Read
+                                                More</a>
+                                        </div>
+                                        <div class="tabs-content__experience-img">
+                                            <img src="assets/images/resources/tabs-content-experience-img.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--tab-->
+                <div class="tab " id="soltution">
+                    <div class="tabs-content__inner">
+                        <div class="row">
+                            <div class="col-xl-5">
+                                <div class="tabs-content__left">
+                                    <ul class="list-unstyled tabs-content__points">
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h4>Highest Success Rates</h4>
+                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
+                                                    quis bibendum.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h4>we grow businesses</h4>
+                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
+                                                    quis bibendum.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-7">
+                                <div class="tabs-content__right">
+                                    <div class="tabs-content__experience-box">
+                                        <div class="tabs-content__experience-content">
+                                            <div class="tabs-content__experience-icon">
+                                                <span class="icon-consulting"></span>
+                                            </div>
+                                            <h3 class="tabs-content__experience-title">We have over 18 years of
+                                                experience</h3>
+                                            <a href="about.html" class="tabs-content__experience-btn">Read
+                                                More</a>
+                                        </div>
+                                        <div class="tabs-content__experience-img">
+                                            <img src="assets/images/resources/tabs-content-experience-img.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="financial-advice__bottom">
+            <p class="financial-advice__bottom-text">qutiiz services built specifically for your business. <a
+                    href="about.html">Find Your Solution</a></p>
+        </div>
+    </div>
+</section>
+<!--Financial Advice End-->
+
+<!--Blog One Start-->
+<section class="blog-one">
+    <div class="container">
+        <div class="section-title text-center">
+            <span class="section-title__tagline">our blog posts</span>
+            <h2 class="section-title__title">News & Articles</h2>
+        </div>
+        {% for blog in blogs %}
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                <!--Blog One Start-->
+                <div class="blog-one__single">
+                    <div class="blog-one__img">
+                        <img src="{{ blog.image.url }}" alt="">
+                        <a href="blog-details.html">
+                            <span class="blog-one__plus"></span>
+                        </a>
+                        <div class="blog-one__date">
+                            <p>25 <br> AUG</p>
+                        </div>
+                    </div>
+                    <div class="blog-one__content">
+                        <ul class="list-unstyled blog-one__meta">
+                            <li><a href="blog-details.html"><i class="far fa-folder-open"></i> Business</a></li>
+                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+                            </li>
+                        </ul>
+                        <h3 class="blog-one__title">
+                            <a href="blog-details.html">Get few solutions to hire a best candidate</a>
+                        </h3>
+                        <div class="blog-one__person">
+                            <div class="blog-one__person-img">
+                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
+                            </div>
+                            <div class="blog-one__person-content">
+                                <p>by Mike Hardson</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                <!--Blog One Start-->
+                <div class="blog-one__single">
+                    <div class="blog-one__img">
+                        <img src="assets/images/blog/blog-one-img-2.jpg" alt="">
+                        <a href="blog-details.html">
+                            <span class="blog-one__plus"></span>
+                        </a>
+                        <div class="blog-one__date">
+                            <p>25 <br> AUG</p>
+                        </div>
+                    </div>
+                    <div class="blog-one__content">
+                        <ul class="list-unstyled blog-one__meta">
+                            <li><a href="blog-details.html"><i class="far fa-folder-open"></i> Business</a></li>
+                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+                            </li>
+                        </ul>
+                        <h3 class="blog-one__title">
+                            <a href="blog-details.html">Bring to the table win-win survival strategies</a>
+                        </h3>
+                        <div class="blog-one__person">
+                            <div class="blog-one__person-img">
+                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
+                            </div>
+                            <div class="blog-one__person-content">
+                                <p>by Mike Hardson</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
+                <!--Blog One Start-->
+                <div class="blog-one__single">
+                    <div class="blog-one__img">
+                        <img src="assets/images/blog/blog-one-img-3.jpg" alt="">
+                        <a href="blog-details.html">
+                            <span class="blog-one__plus"></span>
+                        </a>
+                        <div class="blog-one__date">
+                            <p>25 <br> AUG</p>
+                        </div>
+                    </div>
+                    <div class="blog-one__content">
+                        <ul class="list-unstyled blog-one__meta">
+                            <li><a href="blog-details.html"><i class="far fa-folder-open"></i> Business</a></li>
+                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+                            </li>
+                        </ul>
+                        <h3 class="blog-one__title">
+                            <a href="blog-details.html">Capitalize on low hanging fruit to identify a</a>
+                        </h3>
+                        <div class="blog-one__person">
+                            <div class="blog-one__person-img">
+                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
+                            </div>
+                            <div class="blog-one__person-content">
+                                <p>by Mike Hardson</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Blog One End-->
+
+<!--CTA One Start-->
+<section class="cta-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="cta-one__inner wow fadeInUp" data-wow-delay="100ms" data-wow-duration="2500ms">
+                    <div class="cta-one-shape-1"></div>
+                    <div class="cta-one-shape-2"></div>
+                    <div class="cta-one-shape-3"></div>
+                    <div class="cta-one__left">
+                        <h2 class="cta-one__title">the passion trying & skill can make <br> a top-performing
+                            company</h2>
+                    </div>
+                    <div class="cta-one__right">
+                        <a href="contact.html" class="cta-one__btn thm-btn">let’s get started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--CTA One End-->
 
 
 
