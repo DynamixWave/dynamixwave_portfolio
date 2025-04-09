@@ -103,7 +103,7 @@
                                 <img src="{{ sl.image.url }}" alt="">
                             </div>
                             <div class="services-one__count"></div>
-                            <h3 class="services-one__title"><a href="website-development.html"> {{ sl.name }}
+                            <h3 class="services-one__title"><a href="website-development.html"> {{ sl.name|linebreaksbr }}
                                     </a></h3>
                             <a class="services-one__arrow" href="website-development.html"><span
                                     class="icon-right-arrow"></span></a>
@@ -383,7 +383,7 @@
                             <p class="team-one__hover-title">{{ team.position }}</p>
                             <div class="team-one__social">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
                                 <a href="#"><i class="fab fa-instagram"></i></a>
                                 <a href="#"><i class="fab fa-pinterest-p"></i></a>
                             </div>
@@ -649,12 +649,13 @@
             <span class="section-title__tagline">our blog posts</span>
             <h2 class="section-title__title">News & Articles</h2>
         </div>
+        {% for blog in blogs %}
         <div class="row">
             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
                 <!--Blog One Start-->
                 <div class="blog-one__single">
                     <div class="blog-one__img">
-                        <img src="assets/images/blog/blog-one-img-1.jpg" alt="">
+                        <img src="{{ blog.image.url }}" alt="">
                         <a href="blog-details.html">
                             <span class="blog-one__plus"></span>
                         </a>
