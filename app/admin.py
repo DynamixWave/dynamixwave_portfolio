@@ -16,7 +16,7 @@ class OurServiceModelAdmin(admin.ModelAdmin):
     list_filter = ['id', 'title']
     
 class OurServiceListModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'image']
+    list_display = ['id', 'name', 'icon_image', 'content', 'image_inner']
     search_fields = ['id', 'name']
     list_filter = ['id', 'name']
     
@@ -47,9 +47,13 @@ class WhyChooseUsModelAdmin(admin.ModelAdmin):
     search_fields = ['id', 'title','content']
     list_filter = ['id', 'title']
     
+class CertificateGalleryModelInline(admin.TabularInline):
+    model = CertificateGalleryModel
+    
 class OurTeamMemberModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'image', 'name', 'position', 'facebook', 'telegram', 'viber', 'whatsapp']
-    search_fields = ['id', 'name', 'position']
+    list_display = ['id', 'image', 'name', 'position', 'facebook', 'telegram', 'viber', 'whatsapp', 'title', 'content', 'certificate_title']
+    search_fields = ['id', 'name', 'position', 'title']
+    inlines = [CertificateGalleryModelInline]
     list_filter = ['id', 'name', 'position']
     
 class CustomerFeedbackModelAdmin(admin.ModelAdmin):
@@ -64,13 +68,17 @@ class BlogCategoryModelAdmin(admin.ModelAdmin):
     
 class BlogModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'content', 'image', 'get_categories', 'date']
-    search_fields = ['id', 'title', 'content', 'category', 'date']
+    search_fields = ['id', 'title', 'content', 'category__name', 'date']
     list_filter = ['id', 'title', 'content', 'category', 'date']
-        
+    
+    
+     
     def get_categories(self, obj):
         return ", ".join([cat.name for cat in obj.category.all()])
     get_categories.short_description = 'Categories'
-    
+ 
+class ContactModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'email', 'mobile', 'mobile', 'subject', 'message']
 
     
     
@@ -97,6 +105,6 @@ admin.site.register(OurTeamMemberModel, OurTeamMemberModelAdmin)
 admin.site.register(CustomerFeedbackModel, CustomerFeedbackModelAdmin)
 admin.site.register(BlogCategoryModel, BlogCategoryModelAdmin)
 admin.site.register(BlogModel, BlogModelAdmin)
-
+admin.site.register(ContactModel, ContactModelAdmin)
 
     

@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from datetime import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -25,7 +26,9 @@ class OurServiceModel(models.Model):
 class OurServiceListModel(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200, null=True, blank=True)
-    image = models.ImageField(upload_to='OurService')
+    icon_image = models.ImageField(upload_to='OurService')
+    image_inner = models.ImageField(upload_to='OurService', null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
     
     def __str__(self):
         return self.name
@@ -90,9 +93,22 @@ class OurTeamMemberModel(models.Model):
     telegram = models.URLField(null=True, blank=True)
     viber = models.URLField(null=True, blank=True)
     whatsapp = models.URLField(null=True, blank=True)
+    title = models.CharField(max_length=200, null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
+    certificate_title = models.CharField(max_length=1000, null=True, blank=True)
     
     def __str__(self):
         return self.name
+    
+    
+class CertificateGalleryModel(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    ourteam = models.ForeignKey(OurTeamMemberModel, on_delete=models.CASCADE, null=True, blank=True, related_name='certificates')
+    certificate_image = models.ImageField(upload_to='certificate', null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.ourteam.name} - certificate_image"
+
     
     
 class CustomerFeedbackModel(models.Model):
@@ -119,13 +135,24 @@ class BlogModel(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to='Blog')
     category = models.ManyToManyField(BlogCategoryModel, blank=True, related_name='blogcategory')
-    date = models.DateTimeField()
+    date = models.DateTimeField(auto_now_add=True)
+
     
     def __str__(self):
         return self.title
     
     
+class ContactModel(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=200, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    mobile = models.IntegerField(default=0)
+    subject = models.TextField(null=True, blank=True)
+    message = models.TextField()
     
+    def __str__(self):
+        return self.name
+        
 
     
     
