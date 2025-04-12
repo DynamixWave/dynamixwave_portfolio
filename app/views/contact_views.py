@@ -14,7 +14,7 @@ def Contact(request):
             subject=f"{subject}",
             message=f"Name: {name}\nEmail: {email}\nPhone: {phone}\nSubject: {subject}\n\nMessage:\n{user_message}",
             from_email=email,
-            recipient_list=['heinhtoo421@gmail.com'],
+            recipient_list=['dynamixwave@gmail.com'],
             fail_silently=False,
         )
         
