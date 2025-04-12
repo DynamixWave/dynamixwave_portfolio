@@ -49,10 +49,10 @@
                         </div>
                     </div>
                     <div class="services-three__single-content">
-                        <h2 class="services-three__title"><a href="website-development.html">{{ sl.name }}
+                        <h2 class="services-three__title"><a href="{% url 'service_detail' sl.id %}">{{ sl.name }}
                                 </a></h2>
                         <p class="services-three__text">{{ sl.content }}</p>
-                        <a class="services-three__arrow" href="website-development.html"><span
+                        <a class="services-three__arrow" href="{% url 'service_detail' sl.id %}"><span
                                 class="icon-right-arrow"></span></a>
                     </div>
                 </div>

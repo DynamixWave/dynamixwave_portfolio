@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!--Page Header Start-->
+<section class="page-header">
+    <div class="page-header-bg" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg.jpg' %})">
+    </div>
+    <div class="page-header-border"></div>
+    <div class="page-header-border page-header-border-two"></div>
+    <div class="page-header-border page-header-border-three"></div>
+    <div class="page-header-border page-header-border-four"></div>
+    <div class="page-header-border page-header-border-five"></div>
+    <div class="page-header-border page-header-border-six"></div>
+
+    <div class="page-header-shape-1"></div>
+    <div class="page-header-shape-2"></div>
+    <div class="page-header-shape-3"></div>
+
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li class="active">Blog</li>
+            </ul>
+            <h2>Blog posts</h2>
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+<!--Blog Page Start-->
+<section class="blog-one blog-one__blog-page">
+    <div class="container">
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                <!--Blog One Start-->
+                <div class="blog-one__single">
+                    <div class="blog-one__img">
+                        <img src="{{ blog.image.url }}" alt="">
+                        <a href="{% url 'detail' blog.id %}">
+                            <span class="blog-one__plus"></span>
+                        </a>
+                        <div class="blog-one__date">
+                            <p>{{ blog.date|date:"d" }} <br> {{ blog.date|date:"b" }}</p>
+                        </div>
+                    </div>
+                    <div class="blog-one__content">
+                        <ul class="list-unstyled blog-one__meta">
+
+                            <li>
+                                {% for cat in blog.category.all %}
+                                <a href="{% url 'blog_category_filter' cat.id %}"><i class="far fa-folder-open"></i> {{ cat.name }}</a>
+                                {% endfor %}
+                            </li>
+
+                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+                            </li>
+                        </ul>
+                        <h3 class="blog-one__title">
+                            <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
+                        </h3>
+                        <div class="blog-one__person">
+                            <div class="blog-one__person-img">
+                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
+                            </div>
+                            <div class="blog-one__person-content">
+                                <p>by Mike Hardson</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- <div class="blog-sidebar__load-more text-center">
+                <a href="blog.html" class="thm-btn blog-sidebar__load-more-btn">load more
+                    posts</a>
+            </div> -->
+        </div>
+    </div>
+</section>
+<!--Blog Page End-->
+
+{% endblock %}

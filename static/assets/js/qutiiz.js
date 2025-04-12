@@ -503,11 +503,11 @@
     let mainNavUL = $(".main-menu__list");
     dynamicCurrentMenuClass(mainNavUL);
   }
-  if ($(".service-details__sidebar-service-list").length) {
-    // dynamic current class
-    let mainNavUL = $(".service-details__sidebar-service-list");
-    dynamicCurrentMenuClass(mainNavUL);
-  }
+  // if ($(".service-details__sidebar-service-list").length) {
+  //   // dynamic current class
+  //   let mainNavUL = $(".service-details__sidebar-service-list");
+  //   dynamicCurrentMenuClass(mainNavUL);
+  // }
 
   if ($(".main-menu__list").length && $(".mobile-nav__container").length) {
     let navContent = document.querySelector(".main-menu__list").outerHTML;

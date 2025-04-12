@@ -16,9 +16,33 @@ class OurServiceModelAdmin(admin.ModelAdmin):
     list_filter = ['id', 'title']
     
 class OurServiceListModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'icon_image', 'content', 'image_inner']
+    list_display = ['id', 'name','category', 'icon_image', 'content', 'image_inner', 
+                    'service_detail_icon_1',
+                    'service_detail_icon_title_1',
+                    'service_detail_icon_1_content',
+                    'service_detail_icon_2',
+                    'service_detail_icon_title_2',
+                    'service_detail_icon_2_content',
+                    'service_detail_icon_3',
+                    'service_detail_icon_title_3',
+                    'service_detail_icon_3_content',
+                    'benefits_title',
+                    'benefits_image',
+                    'benefits_content',
+                    'accrodion_title_1',
+                    'accrodion_content_1',
+                    'accrodion_title_2',
+                    'accrodion_content_2',
+                    'accrodion_title_3',
+                    'accrodion_content_3']
+    search_fields = ['id', 'name', 'category']
+    list_filter = ['id', 'name', 'category']
+    
+class OurServiceListCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
     search_fields = ['id', 'name']
     list_filter = ['id', 'name']
+    
     
 class OurPartnerModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'image', 'url']
@@ -71,8 +95,6 @@ class BlogModelAdmin(admin.ModelAdmin):
     search_fields = ['id', 'title', 'content', 'category__name', 'date']
     list_filter = ['id', 'title', 'content', 'category', 'date']
     
-    
-     
     def get_categories(self, obj):
         return ", ".join([cat.name for cat in obj.category.all()])
     get_categories.short_description = 'Categories'
@@ -81,7 +103,10 @@ class ContactModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'email', 'mobile', 'mobile', 'subject', 'message']
 
     
-    
+class AboutModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title','sec_title', 'content', 'image']
+    search_fields = ['id', 'title','sec_title']
+    list_filter = ['id', 'title','sec_title']  
 
     
     
@@ -96,6 +121,7 @@ class ContactModelAdmin(admin.ModelAdmin):
 admin.site.register(HomeSliderModel, HomeSliderModelAdmin)
 admin.site.register(OurServiceModel, OurServiceModelAdmin)
 admin.site.register(OurServiceListModel, OurServiceListModelAdmin)
+admin.site.register(OurServiceListCategory, OurServiceListCategoryAdmin)
 admin.site.register(OurPartnerModel, OurPartnerModelAdmin)
 admin.site.register(ProjectCategoryModel, ProjectCategoryModelAdmin)
 admin.site.register(ProjectModel, ProjectModelAdmin)
@@ -106,5 +132,6 @@ admin.site.register(CustomerFeedbackModel, CustomerFeedbackModelAdmin)
 admin.site.register(BlogCategoryModel, BlogCategoryModelAdmin)
 admin.site.register(BlogModel, BlogModelAdmin)
 admin.site.register(ContactModel, ContactModelAdmin)
+admin.site.register(AboutModel, AboutModelAdmin)
 
     

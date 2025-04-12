@@ -11,7 +11,7 @@ def HomeSliderList(request, category_slug=None):
     whychooseus = WhyChooseUsModel.objects.all()
     ourteam = OurTeamMemberModel.objects.all()
     customerfeedback = CustomerFeedbackModel.objects.all()
-    blog = BlogModel.objects.all()
+    blog = BlogModel.objects.all().order_by('-id')[:6]
     projectcategories = ProjectCategoryModel.objects.all()
     
     categories = None

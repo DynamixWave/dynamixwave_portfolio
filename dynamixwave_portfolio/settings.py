@@ -32,12 +32,14 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     
     'app',
 ]
@@ -152,3 +154,12 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'heinhtoo421@gmail.com'
 EMAIL_HOST_PASSWORD = 'vuof wamx pivd irow'
 EMAIL_USE_TLS = True
+
+JAZZMIN_SETTINGS = {
+    "site_title": "DynamixWave Admin",
+    "site_header": "DynamixWave",
+    "site_brand": "DynamixWave",
+    "site_logo": "assets/images/logo.png",
+    "welcome_sign": "Welcome to DynamixWave Admin",
+    "copyright": "dynamixwave.com",
+}

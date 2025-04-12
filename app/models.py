@@ -23,12 +23,41 @@ class OurServiceModel(models.Model):
     def __str__(self):
         return self.title
     
+class OurServiceListCategory(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.name
+       
+    
 class OurServiceListModel(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200, null=True, blank=True)
+    category = models.ForeignKey(OurServiceListCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name='service_category')
     icon_image = models.ImageField(upload_to='OurService')
     image_inner = models.ImageField(upload_to='OurService', null=True, blank=True)
     content = models.TextField(null=True, blank=True)
+    service_detail_icon_1 = models.ImageField(upload_to='OurService', null=True, blank=True)
+    service_detail_icon_title_1 = models.CharField(max_length=1000, null=True,blank=True) 
+    service_detail_icon_1_content = models.TextField(null=True, blank=True)
+    service_detail_icon_2 = models.ImageField(upload_to='Ourservice', null=True, blank=True)
+    service_detail_icon_title_2 = models.CharField(max_length=1000, null=True,blank=True) 
+    service_detail_icon_2_content = models.TextField(null=True, blank=True)
+    service_detail_icon_3 = models.ImageField(upload_to='Ourservice', null=True, blank=True)
+    service_detail_icon_title_3 = models.CharField(max_length=1000, null=True,blank=True) 
+    service_detail_icon_3_content = models.TextField(null=True, blank=True)
+    
+    benefits_title = models.CharField(max_length=200, null=True, blank=True)
+    benefits_image = models.ImageField(upload_to='Ourservice', null=True, blank=True)
+    benefits_content = models.TextField(null=True, blank=True)
+    accrodion_title_1 = models.CharField(max_length=1000, null=True, blank=True)
+    accrodion_content_1 = models.TextField(null=True, blank=True)
+    accrodion_title_2 = models.CharField(max_length=1000, null=True ,blank=True)
+    accrodion_content_2 = models.TextField(null=True, blank=True)
+    accrodion_title_3 = models.CharField(max_length=1000 ,null=True, blank=True)
+    accrodion_content_3 = models.TextField(null=True, blank=True)
+    
     
     def __str__(self):
         return self.name
@@ -153,6 +182,15 @@ class ContactModel(models.Model):
     def __str__(self):
         return self.name
         
+class AboutModel(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=1000, null=True, blank=True)
+    sec_title = models.CharField(max_length=1000, null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='About')
+    
+    def __str__(self):
+        return self.title
 
     
     

@@ -1,20 +1,28 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from ..models import *
 
+def BlogList(request):
+    blogs = BlogModel.objects.all()
+    
+    context = {
+        'blogs':blogs
+    }
+    return render(request, 'blog.html', context)
+
+
 def Blogdetail(request, pk):
     blogs = BlogModel.objects.all().order_by('-id')[:3]
-    posts = BlogModel.objects.filter(category=pk)
     categories = BlogCategoryModel.objects.all()
     blog = get_object_or_404(BlogModel, id=pk) 
     
     context = {
         'blogs':blogs,
         'blog':blog,
-        'posts':posts,
         'categories':categories
         
     }
     return render(request, 'blog_detail.html', context)
+
 
 def BlogCategoryFilterView(request, category_id):
     category = get_object_or_404(BlogCategoryModel, id=category_id)

@@ -18,3 +18,16 @@ def ProjectList(request):
         "projectcategories":projectcategories
     }
     return render(request, 'project.html', context)
+
+# def Project_detail(request, pk):
+#     projectcategories = ProjectCategoryModel.objects.all()
+#     project = get_object_or_404(ProjectModel, id=pk)
+#     related_project = ProjectModel.objects.filter(category=project.category).exclude(pk=project.id)
+    
+#     context = {
+#         'projectcategories':projectcategories,
+#         'project':project,
+#         'related_project':related_project
+#     }
+#     return render(request, 'project_detail.html', context)
+

@@ -306,7 +306,7 @@
                        <img src="${ project.image }" alt="">
                        <div class="project-one__hover project-one__hover-pl-40">
                            <p class="project-one__tagline">${project.category}</p>
-                           <h3 class="project-one__title"><a href="project-details.html">${ project.name }</a>
+                           <h3 class="project-one__title"><a href="project/project_detail/${ project.id }">${ project.name }</a>
                            </h3>
                        </div>
                    </div>
@@ -332,7 +332,9 @@
                     {% for count in counter %}
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
                         <div class="counter-one__icon">
-                            <img src="{{ count.image.url }}" alt="">
+                            <span>
+                                <img src="{{ count.image.url }}" alt="">
+                            </span>
                         </div>
                         <h3 class="odometer" data-count="{{ count.count_number }}">00</h3>
                         <p class="counter-one__text">{{ count.name }}</p>
@@ -750,6 +752,11 @@
             </div>
             {% endfor %}
             
+        </div>
+
+        <div class="blog-sidebar__load-more text-center">
+            <a href="{% url 'blog_list' %}" class="thm-btn blog-sidebar__load-more-btn">load more
+                posts</a>
         </div>
     </div>
 </section>

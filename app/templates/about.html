@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!--Page Header Start-->
+<section class="page-header">
+    <div class="page-header-bg" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg.jpg' %})">
+    </div>
+    <div class="page-header-border"></div>
+    <div class="page-header-border page-header-border-two"></div>
+    <div class="page-header-border page-header-border-three"></div>
+    <div class="page-header-border page-header-border-four"></div>
+    <div class="page-header-border page-header-border-five"></div>
+    <div class="page-header-border page-header-border-six"></div>
+
+    <div class="page-header-shape-1"></div>
+    <div class="page-header-shape-2"></div>
+    <div class="page-header-shape-3"></div>
+
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li class="active">About</li>
+            </ul>
+            <h2>About Us</h2>
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+
+<!--About Page Start-->
+<section class="about-page">
+<div class="container">
+    {% for about in abouts %}
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="about-page__left">
+                <div class="about-page__img">
+                    <img src="{{ about.image.url }}" alt="">
+                </div>
+                <div class="about-page__founded">
+                    <h5>Founded <br> in 2025</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="about-page__right">
+                <div class="section-title text-left">
+                    <span class="section-title__tagline">read about us</span>
+                    <h2 class="section-title__title">{{ about.title }}</h2>
+                </div>
+                <p class="about-page__right-text-1">{{ about.sec_title }}</p>
+                <p class="about-page__right-text-2">{{ about.content }}</p>
+                <div class="about-page__points-box">
+                    <ul class="list-unstyled about-page__points">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-draw-check-mark"></span>
+                            </div>
+                            <div class="text">
+                                <p>Develop a vision statement</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-draw-check-mark"></span>
+                            </div>
+                            <div class="text">
+                                <p>Grow your customer base</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled about-page__points about-page__points-two">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-draw-check-mark"></span>
+                            </div>
+                            <div class="text">
+                                <p>Increase your monthly sales</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-draw-check-mark"></span>
+                            </div>
+                            <div class="text">
+                                <p>Beat your competition</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+<!--About Page End-->
+
+<!--Counter Two Start-->
+<section class="counter-two about-page-counter-two">
+    <div class="container">
+        <div class="counter-two__inner wow fadeInUp" data-wow-delay="100ms" data-wow-duration="2500ms">
+            <div class="counter-two-shape1"></div>
+            <div class="counter-two-shape2"></div>
+            <div class="counter-two-shape3"></div>
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="counter-two__left">
+                        <h2 class="counter-two__title">Let’s Start Your <br> Project with <br> qutiiz</h2>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="counter-two__right">
+                        <ul class="list-unstyled counter-two__list">
+                            {% for count in counter %}
+                            <li class="counter-two__single wow fadeInUp" data-wow-delay="100ms">
+                                <div class="counter-two__icon">
+                                    <span>
+                                        <img src="{{ count.image.url }}" alt="">
+                                    </span>
+                                </div>
+                                <h3 class="odometer" data-count="{{ count.count_number }}">00</h3>
+                                <p class="counter-two__text">{{ count.name }}</p>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Counter Two End-->
+
+<!--Qutiiz Ready Two-->
+<section class="qutiiz-ready-two">
+    <div class="qutiiz-ready-two-bg-box">
+        <div class="qutiiz-ready-two-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+            style="background-image: url({% static 'assets/images/backgrounds/qutiiz-ready-two-bg.jpg' %})"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="qutiiz-ready-two__inner">
+                    <h2 class="qutiiz-ready-two__title">qutiiz is a ready to protect <br> your businesses</h2>
+                    <a href="about.html" class="qutiiz-ready-two__btn thm-btn">Discover more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Qutiiz Ready End-->
+
+<!--Team One Start-->
+<section class="team-one">
+    <div class="team-one-container">
+        <div class="section-title text-center">
+            <span class="section-title__tagline">our team members</span>
+            <h2 class="section-title__title">Meet expert people</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="team-one__carousel owl-theme owl-carousel">
+                    <!--Team One Single-->
+                    {% for team in ourteam %}
+                    <div class="team-one__single">
+                        <div class="team-one__img">
+                            <img src="{{ team.image.url }}" alt="">
+                        </div>
+                        <div class="team-one__content">
+                            <a href="{% url 'ourteam_detail' pk=team.id %}">
+                                <h4 class="team-one__name">{{ team.name }}</h4>
+                                <p class="team-one__title">{{ team.position }}</p>
+                            </a>
+                        </div>
+                        <div class="team-one__hover">
+                            <a href="{% url 'ourteam_detail' pk=team.id %}">
+                                <h4 class="team-one__hover-name">{{ team.name }}</h4>
+                                <p class="team-one__hover-title">{{ team.position }}</p>
+                            </a>
+                            <div class="team-one__social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Team One End-->
+
+<!--Testimonial Two Start-->
+<section class="testimonial-two clearfix">
+    <div class="testimonial-two-map"
+        style="background-image: url({% static 'assets/images/shapes/testimonial-two-map.png' %})"></div>
+    <div class="container">
+        <div class="section-title text-center">
+            <span class="section-title__tagline">customer feedbacks</span>
+            <h2 class="section-title__title">what they’re talking</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="testimonial-two__carousel owl-theme owl-carousel">
+                    <!--Testimonial One Single-->
+                    {% for feedback in customerfeedback %}
+                    <div class="testimonial-one__single">
+                        <p class="testimonial-one__text">{{ feedback.content }}
+                        </p>
+                        <div class="testimonial-one__client-info">
+                            <div class="testimonial-one__client-img">
+                                <img src="{{ feedback.image.url }}" alt="">
+                                <div class="testimonial-one__quote">
+                                    <img src="assets/images/testimonial/testimonial-one-quote.png" alt="">
+                                </div>
+                            </div>
+                            <div class="testimonial-one__client-details">
+                                <h4 class="testimonial-one__client-name">{{ feedback.name }}</h4>
+                                <p class="testimonial-one__client-title">{{ feedback.position }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Testimonial Two End-->
+
+<!--Brand One Start-->
+<section class="brand-three">
+    <div class="container">
+        <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
+            "0": {
+                "spaceBetween": 30,
+                "slidesPerView": 2
+            },
+            "375": {
+                "spaceBetween": 30,
+                "slidesPerView": 2
+            },
+            "575": {
+                "spaceBetween": 30,
+                "slidesPerView": 3
+            },
+            "767": {
+                "spaceBetween": 50,
+                "slidesPerView": 4
+            },
+            "991": {
+                "spaceBetween": 50,
+                "slidesPerView": 5
+            },
+            "1199": {
+                "spaceBetween": 100,
+                "slidesPerView": 5
+            }
+        }}'>
+            <div class="swiper-wrapper">
+                {% for partner in ourpartner %}
+                <div class="swiper-slide">
+                    <img src="{{ partner.image.url }}" alt="">
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!--Brand One End-->
+
+{% endblock %}
