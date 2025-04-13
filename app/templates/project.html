@@ -68,7 +68,8 @@
        name: "{{ project.name }}",
        category: "{{ project.category }}",
        slug:"{{project.slug}}",
-       image:"{{project.image.url}}"
+       image:"{{project.image.url}}",
+       pj_url:"{{ project.pj_url }}",
      }{% if not forloop.last %}, {% endif %}
    {% endfor %}];
 
@@ -102,7 +103,7 @@
                        <img src="${ project.image }" alt="">
                        <div class="project-one__hover">
                            <p class="project-one__tagline">${project.category}</p>
-                           <h3 class="project-one__title"><a href="project_detail/${ project.id }">${ project.name }</a>
+                           <h3 class="project-one__title"><a href="${ project.pj_url }">${ project.name }</a>
                            </h3>
                        </div>
                    </div>

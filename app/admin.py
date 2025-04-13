@@ -57,7 +57,7 @@ class ProjectCategoryModelAdmin(admin.ModelAdmin):
     
 class ProjectModelAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
-    list_display = ['id', 'category', 'name', 'image', 'slug']
+    list_display = ['id', 'category', 'name', 'image', 'slug', 'pj_url']
     search_fields = ['id', 'name', 'category']
     list_filter = ['id', 'name']
     
@@ -74,11 +74,15 @@ class WhyChooseUsModelAdmin(admin.ModelAdmin):
 class CertificateGalleryModelInline(admin.TabularInline):
     model = CertificateGalleryModel
     
+class OurTeamProgressModelInline(admin.TabularInline):
+    model = OurTeamProgressModel
+    
 class OurTeamMemberModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'image', 'name', 'position', 'facebook', 'telegram', 'viber', 'whatsapp', 'title', 'content', 'certificate_title']
     search_fields = ['id', 'name', 'position', 'title']
-    inlines = [CertificateGalleryModelInline]
+    inlines = [CertificateGalleryModelInline, OurTeamProgressModelInline]
     list_filter = ['id', 'name', 'position']
+    
     
 class CustomerFeedbackModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'content', 'image', 'position']

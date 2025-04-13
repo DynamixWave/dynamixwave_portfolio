@@ -10,7 +10,6 @@ def Ourteam(request):
     return render (request, 'ourteam.html', context)
 
 def Ourteam_detail(request, pk):
-    
     ourteam = get_object_or_404(OurTeamMemberModel, id=pk)
     
     context = {

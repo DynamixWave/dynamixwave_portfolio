@@ -21,8 +21,8 @@
     <div class="container">
         <div class="page-header__inner">
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li><a href="{% url 'service_list' %}">Services</a></li>
                 <li class="active">services Details</li>
             </ul>
             <h2>{{ service.name }}</h2>
@@ -71,7 +71,7 @@
                         <h2 class="service-details__need-help-title">Best Quality <br> services</h2>
                         <div class="service-details__need-help-contact">
                             <p>Call us Anytime</p>
-                            <a href="tel:926668880000">+ 92 666 888 0000</a>
+                            <a href="tel:926668880000">+ 959 768 049 426</a>
                         </div>
                     </div>
                     <div class="service-details__download">
@@ -100,7 +100,7 @@
                                 <div class="service-details__bottom-icon">
                                     <span>
                                         {% if service.service_detail_icon_1 %}
-                                            <img src="{{ service.service_detail_icon_1.url }}" alt="">
+                                            <img src="{{ service.service_detail_icon_1.url }}" alt="" width="65" height="65">
                                         {% endif %}
                                     </span>
                                     <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_1 }}</h4>
@@ -111,7 +111,7 @@
                                 <div class="service-details__bottom-icon">
                                     <span>
                                         {% if service.service_detail_icon_2 %}
-                                            <img src="{{ service.service_detail_icon_2.url }}" alt="">
+                                            <img src="{{ service.service_detail_icon_2.url }}" alt="" width="65" height="65">
                                         {% endif %}
                                     </span>
                                     <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_2 }}</h4>
@@ -122,7 +122,7 @@
                                 <div class="service-details__bottom-icon">
                                     <span>
                                         {% if service.service_detail_icon_3 %}
-                                            <img src="{{ service.service_detail_icon_3.url }}" alt="">
+                                            <img src="{{ service.service_detail_icon_3.url }}" alt="" width="65" height="65">
                                         {% endif %}
                                     </span>
                                     <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_3 }}</h4>

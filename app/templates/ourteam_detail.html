@@ -108,16 +108,18 @@
             <div class="col-xl-5 col-lg-6">
                 <div class="team-details-bottom__right">
                     <div class="team-details-bottom__progress">
+                        {% for progress in team.progress_value.all %}
                         <div class="team-details-bottom__progress-single">
-                            <h4 class="team-details-bottom__progress-title">marketing</h4>
+                            <h4 class="team-details-bottom__progress-title">{{ progress.title }}</h4>
                             <div class="bar">
-                                <div class="bar-inner count-bar" data-percent="80%">
-                                    <div class="count-text">80%</div>
+                                <div class="bar-inner count-bar" data-percent="{{ progress.progress_value }}%">
+                                    <div class="count-text">{{ progress.progress_value }}%</div>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
 
-                        <div class="team-details-bottom__progress-single">
+                        <!-- <div class="team-details-bottom__progress-single">
                             <h4 class="team-details-bottom__progress-title">Development</h4>
                             <div class="bar">
                                 <div class="bar-inner count-bar" data-percent="68%">
@@ -133,7 +135,7 @@
                                     <div class="count-text">58%</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

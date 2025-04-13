@@ -92,6 +92,7 @@ class ProjectModel(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, null=True,blank=True)
     image = models.ImageField(upload_to='Project')
+    pj_url = models.URLField(null=True, blank=True)
     
     def __str__(self):
         return self.name
@@ -140,6 +141,15 @@ class CertificateGalleryModel(models.Model):
     
     def __str__(self):
         return f"{self.ourteam.name} - certificate_image"
+    
+class OurTeamProgressModel(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    ourteam_progress = models.ForeignKey(OurTeamMemberModel, on_delete=models.CASCADE, null=True ,blank=True, related_name='progress_value')
+    title = models.CharField(max_length=1000, null=True, blank=True)
+    progress_value = models.CharField(max_length=200, null=True ,blank=True)
+    
+    def __str__(self):
+        return self.title
 
     
     

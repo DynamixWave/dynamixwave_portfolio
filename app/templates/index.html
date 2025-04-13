@@ -101,7 +101,7 @@
                         <li class="services-one__single wow fadeInUp" data-wow-delay="100ms">
                             <div class="services-one__icon">
                                 <span>
-                                    <img src="{{ sl.icon_image.url }}" alt="">
+                                    <img src="{{ sl.icon_image.url }}" alt="" width="70" height="70">
                                 </span>
                             </div>
                             <div class="services-one__count"></div>
@@ -272,7 +272,8 @@
        name: "{{ project.name }}",
        category: "{{ project.category }}",
        slug:"{{project.slug}}",
-       image:"{{project.image.url}}"
+       image:"{{project.image.url}}",
+       pj_url:"{{ project.pj_url }}",
      }{% if not forloop.last %}, {% endif %}
    {% endfor %}];
 
@@ -306,7 +307,7 @@
                        <img src="${ project.image }" alt="">
                        <div class="project-one__hover project-one__hover-pl-40">
                            <p class="project-one__tagline">${project.category}</p>
-                           <h3 class="project-one__title"><a href="project/project_detail/${ project.id }">${ project.name }</a>
+                           <h3 class="project-one__title"><a href="${ project.pj_url }">${ project.name }</a>
                            </h3>
                        </div>
                    </div>
@@ -733,7 +734,7 @@
                                 {% endfor %}
                             </li>
 
-                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+                            <li><a href="blog-details.html"></a>
                             </li>
                         </ul>
                         <h3 class="blog-one__title">
@@ -744,7 +745,7 @@
                                 <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
                             </div>
                             <div class="blog-one__person-content">
-                                <p>by Mike Hardson</p>
+                                <p>by Admin</p>
                             </div>
                         </div>
                     </div>

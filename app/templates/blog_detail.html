@@ -157,8 +157,9 @@
                                 </div>
                                 <div class="sidebar__post-content">
                                     <h3>
-                                        <span class="sidebar__post-content-meta"><i
-                                                class="far fa-comments"></i>02 Comments</span>
+                                        {% for cat in blog.category.all %}
+                                        <span class="sidebar__post-content-meta"><i class="far fa-folder-open"></i>{{ cat.name }}</span>
+                                        {% endfor %}
                                         <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
                                     </h3>
                                 </div>
