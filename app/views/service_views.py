@@ -13,11 +13,13 @@ def ServiceDetil(request, pk):
     service_category = OurServiceListCategory.objects.all()
     service = get_object_or_404(OurServiceListModel, id=pk)
     services = OurServiceListModel.objects.all()
+    accrodion = AccrodionModel.objects.all()
     context = {
         'service_category':service_category,
         'service':service,
         'services':services,
-        'selected_category': service.category
+        'selected_category': service.category,
+        'accrodion':accrodion
     }
     
     return render(request, 'service_detail.html',context)
@@ -26,11 +28,12 @@ def ServiceByCategory(request, category_id):
     service_category = OurServiceListCategory.objects.all()
     selected_category = get_object_or_404(OurServiceListCategory, id=category_id)
     services = OurServiceListModel.objects.filter(category=selected_category)
-
+    accrodion = AccrodionModel.objects.all()
 
     context = {
         'service_category': service_category,
         'selected_category': selected_category,
         'services': services,
+        'accrodion':accrodion
     }
     return render(request, 'service_by_category.html', context)

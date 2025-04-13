@@ -184,24 +184,26 @@
                     </div>
                     <div class="service-details__faq">
                         <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
-                            <div class="accrodion active">
+                            {% for a in accrodion %}
+                            <div class="accrodion {% if forloop.first %}active{% endif %}">
                                 <div class="accrodion-title">
-                                    <h4>{{ service.accrodion_title_1 }}</h4>
+                                    <h4>{{ a.accrodion_title }}</h4>
                                 </div>
                                 <div class="accrodion-content">
                                     <div class="inner">
-                                        <p>{{ service.accrodion_content_1 }}</p>
+                                        <p>{{ a.accrodion_content }}</p>
                                     </div><!-- /.inner -->
                                 </div>
                             </div>
-                            <div class="accrodion">
+                            {% endfor %}
+                            <!-- <div class="accrodion">
                                 <div class="accrodion-title">
                                     <h4>{{ service.accrodion_title_2 }}</h4>
                                 </div>
                                 <div class="accrodion-content">
                                     <div class="inner">
                                         <p>{{ service.accrodion_content_2 }}</p>
-                                    </div><!-- /.inner -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="accrodion last-chiled">
@@ -211,9 +213,9 @@
                                 <div class="accrodion-content">
                                     <div class="inner">
                                         <p>{{ service.accrodion_content_3 }}</p>
-                                    </div><!-- /.inner -->
+                                    </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

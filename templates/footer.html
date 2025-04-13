@@ -93,7 +93,8 @@
                     <div class="col-xl-5 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                         <div class="footer-widget__column footer-widget__newsletter">
                             <h3 class="footer-widget__title">Newsletter</h3>
-                            <form class="footer-widget__newsletter-form">
+                            <form class="footer-widget__newsletter-form" action="{% url 'newsletter' %}" method="post">
+                                {% csrf_token %}
                                 <div class="footer-widget__newsletter-input-box">
                                     <input type="email" placeholder="Email address" name="email">
                                     <button type="submit" class="footer-widget__newsletter-btn"><i

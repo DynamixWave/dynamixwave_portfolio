@@ -9,10 +9,12 @@ from .views import project_views
 from .views import about_views
 from .views import faqs_views
 from .views import fzf_views
+from .views import newsletter_views
 
 urlpatterns = [
     
     path('', home_views.HomeSliderList, name='HomeList'),
+    path('newsletter/', newsletter_views.newsletter, name='newsletter'),
     path('detail/<uuid:pk>/', blog_views.Blogdetail, name='detail'),
     path('contact/', contact_views.Contact, name='contact'),
     path('ourteam/', ourteam_views.Ourteam, name='ourteam'),

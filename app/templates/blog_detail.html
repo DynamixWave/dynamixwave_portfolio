@@ -45,10 +45,16 @@
                     </div>
                     <div class="blog-details__content">
                         <ul class="list-unstyled blog-details__meta">
-                            <li><a href="blog-details.html"><i class="far fa-user-circle"></i> Mike Hardson</a>
+                            <li><a href="#"><i class="far fa-user-circle"></i> Admin</a>
                             </li>
-                            <li><a href="blog-details.html"><i class="far fa-folder-open"></i> {{ cat.name }}</a></li>
-                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+                            {% for cat in blog.category.all %}
+                            <li>
+                                <a href="{% url 'blog_category_filter' cat.id %}"><i class="far fa-folder-open"></i> {{ cat.name }}</</a>
+                            </li>
+                            {% endfor %}
+                              
+
+                            <li><a href="#"></a>
                             </li>
                         </ul>
                         <h3 class="blog-details__title">{{ blog.title }}</h3>
@@ -74,7 +80,7 @@
                             <li>we build products that <br> make business grow</li>
                         </ul>
                     </div>
-                    <div class="comment-one">
+                    <!-- <div class="comment-one">
                         <h3 class="comment-one__title">2 Comments</h3>
                         <div class="comment-one__single">
                             <div class="comment-one__image">
@@ -127,7 +133,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5">
@@ -170,7 +176,7 @@
                             
                         </ul>
                     </div>
-                    <div class="sidebar__single sidebar__tags">
+                    <!-- <div class="sidebar__single sidebar__tags">
                         <h3 class="sidebar__title">Tags</h3>
                         <div class="sidebar__tags-list">
                             <a href="#">Marketing</a>
@@ -218,7 +224,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

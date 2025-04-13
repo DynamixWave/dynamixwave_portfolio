@@ -28,15 +28,15 @@ class OurServiceListModelAdmin(admin.ModelAdmin):
                     'service_detail_icon_3_content',
                     'benefits_title',
                     'benefits_image',
-                    'benefits_content',
-                    'accrodion_title_1',
-                    'accrodion_content_1',
-                    'accrodion_title_2',
-                    'accrodion_content_2',
-                    'accrodion_title_3',
-                    'accrodion_content_3']
+                    'benefits_content',]
     search_fields = ['id', 'name', 'category']
     list_filter = ['id', 'name', 'category']
+    
+class AccrodionModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'accrodion_title']
+    search_fields = ['id', 'accrodion_title']
+    list_filter = ['id', 'accrodion_title']
+    
     
 class OurServiceListCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
@@ -108,7 +108,10 @@ class AboutModelAdmin(admin.ModelAdmin):
     search_fields = ['id', 'title','sec_title']
     list_filter = ['id', 'title','sec_title']  
 
-    
+class NewsletterModeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'email']
+    search_fields = ['id', 'email']
+    list_filter = ['id', 'email']  
     
     
 
@@ -122,6 +125,7 @@ admin.site.register(HomeSliderModel, HomeSliderModelAdmin)
 admin.site.register(OurServiceModel, OurServiceModelAdmin)
 admin.site.register(OurServiceListModel, OurServiceListModelAdmin)
 admin.site.register(OurServiceListCategory, OurServiceListCategoryAdmin)
+admin.site.register(AccrodionModel, AccrodionModelAdmin)
 admin.site.register(OurPartnerModel, OurPartnerModelAdmin)
 admin.site.register(ProjectCategoryModel, ProjectCategoryModelAdmin)
 admin.site.register(ProjectModel, ProjectModelAdmin)
@@ -133,5 +137,4 @@ admin.site.register(BlogCategoryModel, BlogCategoryModelAdmin)
 admin.site.register(BlogModel, BlogModelAdmin)
 admin.site.register(ContactModel, ContactModelAdmin)
 admin.site.register(AboutModel, AboutModelAdmin)
-
-    
+admin.site.register(NewsletterMode, NewsletterModeAdmin)    
