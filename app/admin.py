@@ -108,7 +108,7 @@ class ContactModelAdmin(admin.ModelAdmin):
 
     
 class AboutModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title','sec_title', 'content', 'image']
+    list_display = ['id', 'title','sec_title', 'content', 'image', 'points']
     search_fields = ['id', 'title','sec_title']
     list_filter = ['id', 'title','sec_title']  
 

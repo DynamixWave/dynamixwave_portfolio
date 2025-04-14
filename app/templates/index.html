@@ -135,14 +135,14 @@
                 <div class="get-to-know__left wow slideInLeft" data-wow-delay="100ms"
                     data-wow-duration="2500ms">
                     <div class="get-to-know__img">
-                        <img src="{% static 'assets/images/resources/get-to-know-img.jpg' %}" alt="">
-                        <div class="get-to-know__video-link">
+                        <img src="{% static 'assets/images/resources/get-to-know.jpg' %}" alt="">
+                        <!-- <div class="get-to-know__video-link">
                             <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
                                 <div class="get-to-know__video-icon">
                                     <span class="icon-play-button"></span>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -151,30 +151,27 @@
                     <div class="get-to-know-big-text">Qutiiz</div>
                     <div class="section-title text-left">
                         <span class="section-title__tagline">get to know us</span>
-                        <h2 class="section-title__title">We’re ready to grow your business with us</h2>
+                        <h2 class="section-title__title">Achieve your business goals with our partnership. </h2>
                     </div>
-                    <p class="get-to-know__text-1">We’re committed to delivering the best digital marketing for
-                        your businesses</p>
-                    <p class="get-to-know__text-2">There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in some form, simply free text by
-                        injected humour, or randomised.</p>
-                    <div class="get-to-know__progress">
+                    <p class="get-to-know__text-1">We’re all about next-level digital marketing for your business.</p>
+                    <p class="get-to-know__text-2">We specialize in delivering high-quality digital marketing for your business needs.We don’t just market—we build digital experiences that grow your business.Turning ideas into impact with digital marketing that delivers.</p>
+                    <!-- <div class="get-to-know__progress">
                         <div class="get-to-know__progress-single">
-                            <h4 class="get-to-know__progress-title">Digital marketing</h4>
+                            <h4 class="get-to-know__progress-title">Your business + our digital marketing = serious growth.</h4>
                             <div class="bar">
                                 <div class="bar-inner count-bar" data-percent="70%">
                                     <div class="count-text">70%</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="get-to-know__person">
-                        <div class="get-to-know__person-img">
+                        <!-- <div class="get-to-know__person-img">
                             <img src="{% static 'assets/images/resources/get-to-know-person-img.jpg' %}" alt="">
-                        </div>
+                        </div> -->
                         <div class="get-to-know__person-content">
-                            <h2 class="get-to-know__person-name">John Smith</h2>
-                            <p class="get-to-know__person-founder">CEO & co Founder</p>
+                            <!-- <h2 class="get-to-know__person-name">Your business + our digital marketing = serious growth.</h2> -->
+                            <p class="get-to-know__person-founder">Your business + our digital marketing = serious growth.</p>
                         </div>
                     </div>
                 </div>
@@ -298,6 +295,9 @@
            }))
    })
    const ProjectFunction = () => {
+    if(filteredProjects.length > 8){
+        filteredProjects = filteredProjects.slice(0,8);
+       }
        Projectdiv.innerHTML = "";  
        filteredProjects.forEach((project)=>{                
                    const projectcard = document.createElement('div');
@@ -334,7 +334,7 @@
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
                         <div class="counter-one__icon">
                             <span>
-                                <img src="{{ count.image.url }}" alt="">
+                                <img src="{{ count.image.url }}" alt="" width="70" height="70">
                             </span>
                         </div>
                         <h3 class="odometer" data-count="{{ count.count_number }}">00</h3>
@@ -368,7 +368,7 @@
                         <span class="section-title__tagline">company benefits</span>
                         <h2 class="section-title__title">{{ choose.title }}</h2>
                     </div>
-                    <p class="why-choose-one__text">{{ choose.content }}</p>
+                    <p class="why-choose-one__text">{{ choose.content|safe }}</p>
                     <div class="why-choose-one__bottom">
                         <div class="why-choose-one__bottom-img">
                             <img src="{{ choose.image_2.url }}" alt="">
@@ -480,7 +480,7 @@
                 <!--Testimonial One Single-->
                 {% for feedback in customerfeedback %}
                 <div class="testimonial-one__single">
-                    <p class="testimonial-one__text">{{ feedback.content }}</p>
+                    <p class="testimonial-one__text">{{ feedback.content|safe }}</p>
                     <div class="testimonial-one__client-info">
                         <div class="testimonial-one__client-img">
                             <img src="{{ feedback.image.url }}" alt="">

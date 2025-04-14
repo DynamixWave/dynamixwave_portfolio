@@ -53,7 +53,7 @@
                     <h2 class="section-title__title">{{ about.title }}</h2>
                 </div>
                 <p class="about-page__right-text-1">{{ about.sec_title }}</p>
-                <p class="about-page__right-text-2">{{ about.content }}</p>
+                <p class="about-page__right-text-2">{{ about.content|safe }}</p>
                 <div class="about-page__points-box">
                     <ul class="list-unstyled about-page__points">
                         <li>
@@ -120,7 +120,7 @@
                             <li class="counter-two__single wow fadeInUp" data-wow-delay="100ms">
                                 <div class="counter-two__icon">
                                     <span>
-                                        <img src="{{ count.image.url }}" alt="">
+                                        <img src="{{ count.image.url }}" alt="" width="70" height="70">
                                     </span>
                                 </div>
                                 <h3 class="odometer" data-count="{{ count.count_number }}">00</h3>
@@ -214,7 +214,7 @@
                     <!--Testimonial One Single-->
                     {% for feedback in customerfeedback %}
                     <div class="testimonial-one__single">
-                        <p class="testimonial-one__text">{{ feedback.content }}
+                        <p class="testimonial-one__text">{{ feedback.content|safe }}
                         </p>
                         <div class="testimonial-one__client-info">
                             <div class="testimonial-one__client-img">

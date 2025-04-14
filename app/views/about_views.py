@@ -4,7 +4,7 @@ from ..models import *
 def AboutList(request):
     abouts = AboutModel.objects.all()
     ourpartners = OurPartnerModel.objects.all()
-    counters = CounterModel.objects.all()
+    counters = CounterModel.objects.all().order_by('-id')[:3]
     ourteam = OurTeamMemberModel.objects.all()
     customerfeedback = CustomerFeedbackModel.objects.all()
     context = {
