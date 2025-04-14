@@ -18386,3 +18386,31 @@ body.megamenu-popup-active .mobile-nav__content {
   font-weight: inherit !important;
   color: var(--qutiiz-white) !important;
 }
+
+.searchresult{
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  width: 100%;
+  border-radius:10px;
+}
+
+.searchdiv{
+  display: flex;
+  justify-content: space-around;
+  padding:10px;
+  border-bottom:rgb(150, 139, 139) 1px solid;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
+.searchdiv:hover{
+  background-color: var(--qutiiz-base);
+  color: white;
+  border-radius: 5px;
+}
+
+.searchdiv img{
+  border-radius: 10px;
+}

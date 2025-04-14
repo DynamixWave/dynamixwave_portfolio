@@ -56,40 +56,32 @@
                 <p class="about-page__right-text-2">{{ about.content|safe }}</p>
                 <div class="about-page__points-box">
                     <ul class="list-unstyled about-page__points">
+                        {% for i in about.points %}
+                        {% if forloop.counter|divisibleby:2 %}
                         <li>
                             <div class="icon">
                                 <span class="icon-draw-check-mark"></span>
                             </div>
                             <div class="text">
-                                <p>Develop a vision statement</p>
+                                <p>{{i}}</p>
                             </div>
                         </li>
-                        <li>
-                            <div class="icon">
-                                <span class="icon-draw-check-mark"></span>
-                            </div>
-                            <div class="text">
-                                <p>Grow your customer base</p>
-                            </div>
-                        </li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
                     <ul class="list-unstyled about-page__points about-page__points-two">
+                        {% for i in about.points %}
+                        {% if not forloop.counter|divisibleby:2 %}
                         <li>
                             <div class="icon">
                                 <span class="icon-draw-check-mark"></span>
                             </div>
                             <div class="text">
-                                <p>Increase your monthly sales</p>
+                                <p>{{i}}</p>
                             </div>
                         </li>
-                        <li>
-                            <div class="icon">
-                                <span class="icon-draw-check-mark"></span>
-                            </div>
-                            <div class="text">
-                                <p>Beat your competition</p>
-                            </div>
-                        </li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

@@ -141,16 +141,48 @@
                     <div class="sidebar__single sidebar__search">
 
                         <form action="#" class="sidebar__search-form">
-                            <input type="search" placeholder="Search here" name="searchbox" value="">
+                            <input type="search" id="searchbox" placeholder="Search here" name="searchbox" value="">
                             <button type="submit"><i class="icon-magnifying-glass"></i></button>
+                            <div class="searchresult"></div>
                         </form>
-                     
+                     <script>
+                         const blogList = [ {% for blog in blogs %}
+                            {
+                            id: "{{ blog.id }}",
+                            title: "{{ blog.title }}",
+                            content: "{{ blog.content }}",
+                            category: "{{ blog.category }}",
+                            image:"{{blog.image.url}}",
+                            date:"{{ blog.date }}",
+                            }{% if not forloop.last %}, {% endif %}
+                        {% endfor %}];
+                        const searchbox = document.getElementById('searchbox');
+                        const searchresult = document.querySelector('.searchresult');
+                        searchbox.addEventListener("input",()=>{
+                            let filteredblog = [];
+                            const searchValue = searchbox.value.toLowerCase();
+                            if(searchValue != ""){
+                            filteredblog = blogList.filter((blog)=>{
+                                return blog.title.toLowerCase().includes(searchValue) || blog.content.toLowerCase().includes(searchValue)
+                            })}
+                            searchresult.innerHTML = "";
+                            filteredblog.map((blog)=> {
+                                const blogdiv = document.createElement('a')
+                                blogdiv.classList.add('searchdiv')
+                                blogdiv.innerHTML = `<img src='${blog.image}' width="50" height="50" />
+                                <p>${blog.title}</p>
+                                <span class="icon-right-arrow" style="margin-top:15px"></span>`
+                                blogdiv.href=`/detail/${blog.id}/`
+                                searchresult.append(blogdiv)
+                            })
+                        })
+                     </script>
                     </div>
                     <div class="sidebar__single sidebar__post">
                         <h3 class="sidebar__title">Latest Posts</h3>
                         <ul class="sidebar__post-list list-unstyled">
                           
-                            {% for blog in blogs %}
+                            {% for blog in latestblogs %}
                             <li>
                                 <div class="sidebar__post-image">
                                     <img src="{{ blog.image.url }}" alt="">
