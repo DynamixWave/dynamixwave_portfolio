@@ -11,15 +11,16 @@ def BlogList(request):
 
 
 def Blogdetail(request, pk):
-    blogs = BlogModel.objects.all().order_by('-id')[:3]
+    latestblogs = BlogModel.objects.all().order_by('-id')[:3]
     categories = BlogCategoryModel.objects.all()
     blog = get_object_or_404(BlogModel, id=pk) 
+    blogs = BlogModel.objects.all().order_by('-id')
     
     context = {
-        'blogs':blogs,
+        'latestblogs':latestblogs,
         'blog':blog,
-        'categories':categories
-        
+        'categories':categories,
+        'blogs':blogs
     }
     return render(request, 'blog_detail.html', context)
 
