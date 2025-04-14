@@ -32,12 +32,14 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     
     'app',
 ]
@@ -145,3 +147,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dynamixwave@gmail.com'
+EMAIL_HOST_PASSWORD = 'cshf mdse gqcq xmah'
+EMAIL_USE_TLS = True
+
+JAZZMIN_SETTINGS = {
+    "site_title": "DynamixWave Admin",
+    "site_header": "DynamixWave",
+    "site_brand": "DynamixWave",
+    "site_logo": "assets/images/logo.png",
+    "welcome_sign": "Welcome to DynamixWave Admin",
+    "copyright": "dynamixwave.com",
+}

@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!--Page Header Start-->
+<section class="page-header">
+    <div class="page-header-bg" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg.jpg' %})">
+    </div>
+    <div class="page-header-border"></div>
+    <div class="page-header-border page-header-border-two"></div>
+    <div class="page-header-border page-header-border-three"></div>
+    <div class="page-header-border page-header-border-four"></div>
+    <div class="page-header-border page-header-border-five"></div>
+    <div class="page-header-border page-header-border-six"></div>
+
+    <div class="page-header-shape-1"></div>
+    <div class="page-header-shape-2"></div>
+    <div class="page-header-shape-3"></div>
+
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li><a href="{% url 'service_list' %}">Services</a></li>
+                <li class="active">services Details</li>
+            </ul>
+            <h2>{{ service.name }}</h2>
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+<!--Service Details Start-->
+<section class="service-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-5">
+                <div class="service-details__sidebar">
+                    <div class="service-details__sidebar-service">
+                        <ul class="service-details__sidebar-service-list list-unstyled">
+                            {% for c in service_category %}
+                            <li class="{% if selected_category.id == c.id %}current{% endif %}">
+                                <a href="{% url 'service_by_category' c.id %}">
+                                    {{ c.name }}
+                                    {% if selected_category.id == c.id %}
+                                        <span class="icon-right-arrow"></span>
+                                    {% endif %}
+                                </a>
+                            </li>
+                            {% endfor %}
+                            <!-- <li><a href="digital-marketing.html">Digital Marketings <span
+                                        class="icon-right-arrow"></span></a></li>
+                            <li><a href="graphic-design.html">Graphic Designings <span
+                                        class="icon-right-arrow"></span></a></li>
+                            <li><a href="website-development.html">Website Developments <span
+                                        class="icon-right-arrow"></span></a></li>
+                            <li><a href="social-marketing.html">Social Marketings <span
+                                        class="icon-right-arrow"></span></a></li>
+                            <li><a href="content-writing.html">Content Writtings <span
+                                        class="icon-right-arrow"></span></a></li> -->
+                        </ul>
+                    </div>
+                    <div class="service-details__need-help">
+                        <div class="service-details__need-help-bg"
+                            style="background-image: url({% static 'assets/images/backgrounds/service-details-need-help-bg.jpg' %})">
+                        </div>
+                        <div class="service-details__need-help-icon">
+                            <span class="icon-chatting"></span>
+                        </div>
+                        <h2 class="service-details__need-help-title">Best Quality <br> services</h2>
+                        <div class="service-details__need-help-contact">
+                            <p>Call us Anytime</p>
+                            <a href="tel:926668880000">+ 959 768 049 426</a>
+                        </div>
+                    </div>
+                    <div class="service-details__download">
+                        <a href="#" class="service-details__download-btn">Download our broucher</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-7">
+                <div class="service-details__right">
+                    <div class="service-details__img">
+                        <img src="{{ service.image_inner.url }}" alt="">
+                    </div>
+                    <div class="service-details__content">
+                        <h2 class="service-details__title">{{ service.name }}</h2>
+                        <p class="service-details__text-1">{{ service.content }}</p>
+                        <!-- <p class="service-details__text-2">Lorem ipsum is simply free text dolor sit amet,
+                            consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labo lonm
+                            andhn.</p>
+                        <p class="service-details__text-3">Tincidunt elit magnis nulla facilisis sagittis sapien
+                            nunc Many desktop publishing packages and web page editors amet ultrices dolores sit
+                            ipsum velit purus aliquet massa fringilla leo orci. Sapien nunc amet ultrices.</p> -->
+                    </div>
+                    <div class="service-details__bottom">
+                        <ul class="list-unstyled service-details__bottom-list">
+                            <li class="service-details__bottom-single">
+                                <div class="service-details__bottom-icon">
+                                    <span>
+                                        {% if service.service_detail_icon_1 %}
+                                            <img src="{{ service.service_detail_icon_1.url }}" alt="" width="65" height="65">
+                                        {% endif %}
+                                    </span>
+                                    <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_1 }}</h4>
+                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_1_content }}</p>
+                                </div>
+                            </li>
+                            <li class="service-details__bottom-single">
+                                <div class="service-details__bottom-icon">
+                                    <span>
+                                        {% if service.service_detail_icon_2 %}
+                                            <img src="{{ service.service_detail_icon_2.url }}" alt="" width="65" height="65">
+                                        {% endif %}
+                                    </span>
+                                    <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_2 }}</h4>
+                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_2_content }}</p>
+                                </div>
+                            </li>
+                            <li class="service-details__bottom-single">
+                                <div class="service-details__bottom-icon">
+                                    <span>
+                                        {% if service.service_detail_icon_3 %}
+                                            <img src="{{ service.service_detail_icon_3.url }}" alt="" width="65" height="65">
+                                        {% endif %}
+                                    </span>
+                                    <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_3 }}</h4>
+                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_3_content }}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-details__benefits">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="service-details__benefits-content">
+                                    <h3 class="service-details__benefits-title">{{ service.benefits_title }}</h3>
+                                    <p class="service-details__benefits-text">{{ service.benefits_content }}</p>
+                                    <ul class="list-unstyled service-details__benefits-list">
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <p>Nsectetur cing elit</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <p>Suspe ndisse suscip sagittis leo</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <p>Entum estib dignissim posuere</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-draw-check-mark"></span>
+                                            </div>
+                                            <div class="text">
+                                                <p>If you are going to use a pass</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="service-details__benefits-img">
+                                    {% if service.benefits_image %}
+                                    <img src="{{ service.benefits_image.url }}" alt="">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-details__faq">
+                        <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                            {% for a in accrodion %}
+                            <div class="accrodion {% if forloop.first %}active{% endif %}">
+                                <div class="accrodion-title">
+                                    <h4>{{ a.accrodion_title }}</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>{{ a.accrodion_content }}</p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>{{ service.accrodion_title_2 }}</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>{{ service.accrodion_content_2 }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accrodion last-chiled">
+                                <div class="accrodion-title">
+                                    <h4>{{ service.accrodion_title_3 }}</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>{{ service.accrodion_content_3 }}</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Service Details End-->
+
+{% endblock %}

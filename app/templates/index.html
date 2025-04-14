@@ -72,7 +72,7 @@
 <!-- Services One Start-->
 <section class="services-one">
     <div class="services-one-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"><img
-            class="float-bob-x" src="assets/images/shapes/services-one-shape.png" alt=""></div>
+            class="float-bob-x" src="{% static 'assets/images/shapes/services-one-shape.png' %}" alt=""></div>
     <div class="container">
         <div class="services-one__top">
             <div class="row">
@@ -100,7 +100,9 @@
                         {% for sl in ourservicelist %}
                         <li class="services-one__single wow fadeInUp" data-wow-delay="100ms">
                             <div class="services-one__icon">
-                                <img src="{{ sl.image.url }}" alt="">
+                                <span>
+                                    <img src="{{ sl.icon_image.url }}" alt="" width="70" height="70">
+                                </span>
                             </div>
                             <div class="services-one__count"></div>
                             <h3 class="services-one__title"><a href="website-development.html"> {{ sl.name|linebreaksbr }}
@@ -133,14 +135,14 @@
                 <div class="get-to-know__left wow slideInLeft" data-wow-delay="100ms"
                     data-wow-duration="2500ms">
                     <div class="get-to-know__img">
-                        <img src="{% static 'assets/images/resources/get-to-know-img.jpg' %}" alt="">
-                        <div class="get-to-know__video-link">
+                        <img src="{% static 'assets/images/resources/get-to-know.jpg' %}" alt="">
+                        <!-- <div class="get-to-know__video-link">
                             <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
                                 <div class="get-to-know__video-icon">
                                     <span class="icon-play-button"></span>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -149,30 +151,27 @@
                     <div class="get-to-know-big-text">Qutiiz</div>
                     <div class="section-title text-left">
                         <span class="section-title__tagline">get to know us</span>
-                        <h2 class="section-title__title">We’re ready to grow your business with us</h2>
+                        <h2 class="section-title__title">Achieve your business goals with our partnership. </h2>
                     </div>
-                    <p class="get-to-know__text-1">We’re committed to delivering the best digital marketing for
-                        your businesses</p>
-                    <p class="get-to-know__text-2">There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in some form, simply free text by
-                        injected humour, or randomised.</p>
-                    <div class="get-to-know__progress">
+                    <p class="get-to-know__text-1">We’re all about next-level digital marketing for your business.</p>
+                    <p class="get-to-know__text-2">We specialize in delivering high-quality digital marketing for your business needs.We don’t just market—we build digital experiences that grow your business.Turning ideas into impact with digital marketing that delivers.</p>
+                    <!-- <div class="get-to-know__progress">
                         <div class="get-to-know__progress-single">
-                            <h4 class="get-to-know__progress-title">Digital marketing</h4>
+                            <h4 class="get-to-know__progress-title">Your business + our digital marketing = serious growth.</h4>
                             <div class="bar">
                                 <div class="bar-inner count-bar" data-percent="70%">
                                     <div class="count-text">70%</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="get-to-know__person">
-                        <div class="get-to-know__person-img">
+                        <!-- <div class="get-to-know__person-img">
                             <img src="{% static 'assets/images/resources/get-to-know-person-img.jpg' %}" alt="">
-                        </div>
+                        </div> -->
                         <div class="get-to-know__person-content">
-                            <h2 class="get-to-know__person-name">John Smith</h2>
-                            <p class="get-to-know__person-founder">CEO & co Founder</p>
+                            <!-- <h2 class="get-to-know__person-name">Your business + our digital marketing = serious growth.</h2> -->
+                            <p class="get-to-know__person-founder">Your business + our digital marketing = serious growth.</p>
                         </div>
                     </div>
                 </div>
@@ -235,18 +234,17 @@
         <div class="row">
             <div class="col-xl-12">
                 <ul class="project-filter style1 post-filter has-dynamic-filters-counter list-unstyled">
-                    <li data-filter=".filter-item" class="active"><span class="filter-text">All</span></li>
-                    <li data-filter=".bra"><span class="filter-text">Branding</span></li>
-                    <li data-filter=".photo"><span class="filter-text">Photography</span></li>
-                    <li data-filter=".web"><span class="filter-text">Web Design</span></li>
-                    <li data-filter=".app"><span class="filter-text last-pd-none">Apps</span></li>
+                        <li data-filter="all" class="active"><span class="filter-text">All</span></li>
+                    {% for c in projectcategories %}
+                        <li data-filter="{{c.name}}"><span class="filter-text">{{c.name}}</span></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
         <div class="row filter-layout masonary-layout">
-            {% for pj in projects %}
+            <!-- {% for pj in projects %}
             <div class="col-xl-3 col-lg-6 col-md-6 filter-item bra photo web">
-                <!--Portfolio One Single-->
+                
                 <div class="project-one__single">
                     <div class="project-one__img">
                         <img src="{{ pj.image.url }}" alt="">
@@ -258,11 +256,69 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
+            {% endfor %} -->
             
         </div>
     </div>
 </section>
+
+<script>
+    const ProjectList = [ {% for project in projects %}
+     {
+       id: "{{ project.id }}",
+       name: "{{ project.name }}",
+       category: "{{ project.category }}",
+       slug:"{{project.slug}}",
+       image:"{{project.image.url}}",
+       pj_url:"{{ project.pj_url }}",
+     }{% if not forloop.last %}, {% endif %}
+   {% endfor %}];
+
+
+   const ProjectCategories = document.querySelectorAll('.post-filter li');
+   let filteredProjects = ProjectList;
+   const Projectdiv = document.querySelector(".masonary-layout");
+   
+   ProjectCategories.forEach((cate,index)=>{
+       cate.addEventListener("click",()=>ProjectCategories.forEach((c, index)=>{
+               c.classList.remove('active');
+               cate.classList.add('active');
+               let selector = cate.getAttribute('data-filter');
+
+               if(selector=="all"){
+                   filteredProjects = ProjectList;
+               }else{
+               filteredProjects = ProjectList.filter((project) => {
+                   return project.category === selector;
+               })}
+               ProjectFunction();
+           }))
+   })
+   const ProjectFunction = () => {
+    if(filteredProjects.length > 8){
+        filteredProjects = filteredProjects.slice(0,8);
+       }
+       Projectdiv.innerHTML = "";  
+       filteredProjects.forEach((project)=>{                
+                   const projectcard = document.createElement('div');
+                   projectcard.classList.add('col-xl-3','col-lg-6','col-md-6','filter-item','bra','photo', 'web');
+                   projectcard.innerHTML = ` <div class="project-one__single">
+                   <div class="project-one__img">
+                       <img src="${ project.image }" alt="">
+                       <div class="project-one__hover project-one__hover-pl-40">
+                           <p class="project-one__tagline">${project.category}</p>
+                           <h3 class="project-one__title"><a href="${ project.pj_url }">${ project.name }</a>
+                           </h3>
+                       </div>
+                   </div>
+               </div>`;
+               Projectdiv.append(projectcard);
+               })
+   }
+
+   ProjectFunction()
+</script>
+
 <!--Project One End-->
 
  <!--Counter One Start-->
@@ -277,7 +333,9 @@
                     {% for count in counter %}
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
                         <div class="counter-one__icon">
-                            <img src="{{ count.image.url }}" alt="">
+                            <span>
+                                <img src="{{ count.image.url }}" alt="" width="70" height="70">
+                            </span>
                         </div>
                         <h3 class="odometer" data-count="{{ count.count_number }}">00</h3>
                         <p class="counter-one__text">{{ count.name }}</p>
@@ -310,7 +368,7 @@
                         <span class="section-title__tagline">company benefits</span>
                         <h2 class="section-title__title">{{ choose.title }}</h2>
                     </div>
-                    <p class="why-choose-one__text">{{ choose.content }}</p>
+                    <p class="why-choose-one__text">{{ choose.content|safe }}</p>
                     <div class="why-choose-one__bottom">
                         <div class="why-choose-one__bottom-img">
                             <img src="{{ choose.image_2.url }}" alt="">
@@ -375,12 +433,16 @@
                             <img src="{{ team.image.url }}" alt="">
                         </div>
                         <div class="team-one__content">
-                            <h4 class="team-one__name">{{ team.name }}</h4>
-                            <p class="team-one__title">{{ team.position }}</p>
+                            <a href="{% url 'ourteam_detail' pk=team.id %}">
+                                <h4 class="team-one__name">{{ team.name }}</h4>
+                                <p class="team-one__title">{{ team.position }}</p>
+                            </a>
                         </div>
                         <div class="team-one__hover">
-                            <h4 class="team-one__hover-name">{{ team.name }}</h4>
-                            <p class="team-one__hover-title">{{ team.position }}</p>
+                            <a href="{% url 'ourteam_detail' pk=team.id %}">
+                                <h4 class="team-one__hover-name">{{ team.name }}</h4>
+                                <p class="team-one__hover-title">{{ team.position }}</p>
+                            </a>
                             <div class="team-one__social">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
@@ -418,7 +480,7 @@
                 <!--Testimonial One Single-->
                 {% for feedback in customerfeedback %}
                 <div class="testimonial-one__single">
-                    <p class="testimonial-one__text">{{ feedback.content }}</p>
+                    <p class="testimonial-one__text">{{ feedback.content|safe }}</p>
                     <div class="testimonial-one__client-info">
                         <div class="testimonial-one__client-img">
                             <img src="{{ feedback.image.url }}" alt="">
@@ -467,7 +529,7 @@
 <!--Financial Advice Start-->
 <section class="financial-advice">
     <div class="financial-advice-bg"
-        style="background-image: url(assets/images/shapes/financial-advice-shape.png)"></div>
+        style="background-image: url({% static 'assets/images/shapes/financial-advice-shape.png' %})"></div>
     <div class="container">
         <div class="financial-advice__tab-box tabs-box">
             <ul class="tab-buttons clearfix list-unstyled">
@@ -649,104 +711,53 @@
             <span class="section-title__tagline">our blog posts</span>
             <h2 class="section-title__title">News & Articles</h2>
         </div>
-        {% for blog in blogs %}
         <div class="row">
+            {% for blog in blogs %}
             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
                 <!--Blog One Start-->
                 <div class="blog-one__single">
                     <div class="blog-one__img">
                         <img src="{{ blog.image.url }}" alt="">
-                        <a href="blog-details.html">
+                        <a href="{% url 'detail' blog.id %}">
                             <span class="blog-one__plus"></span>
                         </a>
                         <div class="blog-one__date">
-                            <p>25 <br> AUG</p>
+                            <p>{{ blog.date|date:"d" }} <br> {{ blog.date|date:"b" }}</p>
                         </div>
                     </div>
                     <div class="blog-one__content">
                         <ul class="list-unstyled blog-one__meta">
-                            <li><a href="blog-details.html"><i class="far fa-folder-open"></i> Business</a></li>
-                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+
+                            <li>
+                                {% for cat in blog.category.all %}
+                                <a href="{% url 'blog_category_filter' cat.id %}"><i class="far fa-folder-open"></i> {{ cat.name }}</a>
+                                {% endfor %}
+                            </li>
+
+                            <li><a href="blog-details.html"></a>
                             </li>
                         </ul>
                         <h3 class="blog-one__title">
-                            <a href="blog-details.html">Get few solutions to hire a best candidate</a>
+                            <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
                         </h3>
                         <div class="blog-one__person">
                             <div class="blog-one__person-img">
                                 <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
                             </div>
                             <div class="blog-one__person-content">
-                                <p>by Mike Hardson</p>
+                                <p>by Admin</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                <!--Blog One Start-->
-                <div class="blog-one__single">
-                    <div class="blog-one__img">
-                        <img src="assets/images/blog/blog-one-img-2.jpg" alt="">
-                        <a href="blog-details.html">
-                            <span class="blog-one__plus"></span>
-                        </a>
-                        <div class="blog-one__date">
-                            <p>25 <br> AUG</p>
-                        </div>
-                    </div>
-                    <div class="blog-one__content">
-                        <ul class="list-unstyled blog-one__meta">
-                            <li><a href="blog-details.html"><i class="far fa-folder-open"></i> Business</a></li>
-                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
-                            </li>
-                        </ul>
-                        <h3 class="blog-one__title">
-                            <a href="blog-details.html">Bring to the table win-win survival strategies</a>
-                        </h3>
-                        <div class="blog-one__person">
-                            <div class="blog-one__person-img">
-                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
-                            </div>
-                            <div class="blog-one__person-content">
-                                <p>by Mike Hardson</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                <!--Blog One Start-->
-                <div class="blog-one__single">
-                    <div class="blog-one__img">
-                        <img src="assets/images/blog/blog-one-img-3.jpg" alt="">
-                        <a href="blog-details.html">
-                            <span class="blog-one__plus"></span>
-                        </a>
-                        <div class="blog-one__date">
-                            <p>25 <br> AUG</p>
-                        </div>
-                    </div>
-                    <div class="blog-one__content">
-                        <ul class="list-unstyled blog-one__meta">
-                            <li><a href="blog-details.html"><i class="far fa-folder-open"></i> Business</a></li>
-                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
-                            </li>
-                        </ul>
-                        <h3 class="blog-one__title">
-                            <a href="blog-details.html">Capitalize on low hanging fruit to identify a</a>
-                        </h3>
-                        <div class="blog-one__person">
-                            <div class="blog-one__person-img">
-                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
-                            </div>
-                            <div class="blog-one__person-content">
-                                <p>by Mike Hardson</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+            
+        </div>
+
+        <div class="blog-sidebar__load-more text-center">
+            <a href="{% url 'blog_list' %}" class="thm-btn blog-sidebar__load-more-btn">load more
+                posts</a>
         </div>
     </div>
 </section>

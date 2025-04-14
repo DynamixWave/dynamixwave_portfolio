@@ -503,11 +503,11 @@
     let mainNavUL = $(".main-menu__list");
     dynamicCurrentMenuClass(mainNavUL);
   }
-  if ($(".service-details__sidebar-service-list").length) {
-    // dynamic current class
-    let mainNavUL = $(".service-details__sidebar-service-list");
-    dynamicCurrentMenuClass(mainNavUL);
-  }
+  // if ($(".service-details__sidebar-service-list").length) {
+  //   // dynamic current class
+  //   let mainNavUL = $(".service-details__sidebar-service-list");
+  //   dynamicCurrentMenuClass(mainNavUL);
+  // }
 
   if ($(".main-menu__list").length && $(".mobile-nav__container").length) {
     let navContent = document.querySelector(".main-menu__list").outerHTML;
@@ -731,46 +731,46 @@
   }
 
   // ===Portfolio===
-  function projectMasonaryLayout() {
-    if ($(".masonary-layout").length) {
-      $(".masonary-layout").isotope({
-        layoutMode: "masonry"
-      });
-    }
-    if ($(".post-filter").length) {
-      $(".post-filter li")
-        .children(".filter-text")
-        .on("click", function () {
-          var Self = $(this);
-          var selector = Self.parent().attr("data-filter");
-          $(".post-filter li").removeClass("active");
-          Self.parent().addClass("active");
-          $(".filter-layout").isotope({
-            filter: selector,
-            animationOptions: {
-              duration: 500,
-              easing: "linear",
-              queue: false
-            }
-          });
-          return false;
-        });
-    }
+  // function projectMasonaryLayout() {
+  //   if ($(".masonary-layout").length) {
+  //     $(".masonary-layout").isotope({
+  //       layoutMode: "masonry"
+  //     });
+  //   }
+  //   if ($(".post-filter").length) {
+  //     $(".post-filter li")
+  //       .children(".filter-text")
+  //       .on("click", function () {
+  //         var Self = $(this);
+  //         var selector = Self.parent().attr("data-filter");
+  //         $(".post-filter li").removeClass("active");
+  //         Self.parent().addClass("active");
+  //         $(".filter-layout").isotope({
+  //           filter: selector,
+  //           animationOptions: {
+  //             duration: 500,
+  //             easing: "linear",
+  //             queue: false
+  //           }
+  //         });
+  //         return false;
+  //       });
+  //   }
 
-    if ($(".post-filter.has-dynamic-filters-counter").length) {
-      // var allItem = $('.single-filter-item').length;
-      var activeFilterItem = $(".post-filter.has-dynamic-filters-counter").find(
-        "li"
-      );
-      activeFilterItem.each(function () {
-        var filterElement = $(this).data("filter");
-        var count = $(".filter-layout").find(filterElement).length;
-        $(this)
-          .children(".filter-text")
-          .append('<span class="count">(' + count + ")</span>");
-      });
-    }
-  }
+  //   if ($(".post-filter.has-dynamic-filters-counter").length) {
+  //     // var allItem = $('.single-filter-item').length;
+  //     var activeFilterItem = $(".post-filter.has-dynamic-filters-counter").find(
+  //       "li"
+  //     );
+  //     activeFilterItem.each(function () {
+  //       var filterElement = $(this).data("filter");
+  //       var count = $(".filter-layout").find(filterElement).length;
+  //       $(this)
+  //         .children(".filter-text")
+  //         .append('<span class="count">(' + count + ")</span>");
+  //     });
+  //   }
+  // }
 
   // ===Checkout Payment===
   if ($(".checkout__payment__title").length) {
@@ -879,49 +879,49 @@
         });
       });
     }
-    if ($(".post-filter").length) {
-      var postFilterList = $(".post-filter li");
-      // for first init
-      $(".filter-layout").isotope({
-        filter: ".filter-item",
-        animationOptions: {
-          duration: 500,
-          easing: "linear",
-          queue: false
-        }
-      });
-      // on click filter links
-      postFilterList.on("click", function () {
-        var Self = $(this);
-        var selector = Self.attr("data-filter");
-        postFilterList.removeClass("active");
-        Self.addClass("active");
+    // if ($(".post-filter").length) {
+    //   var postFilterList = $(".post-filter li");
+    //   // for first init
+    //   $(".filter-layout").isotope({
+    //     filter: ".filter-item",
+    //     animationOptions: {
+    //       duration: 500,
+    //       easing: "linear",
+    //       queue: false
+    //     }
+    //   });
+    //   // on click filter links
+    //   postFilterList.on("click", function () {
+    //     var Self = $(this);
+    //     var selector = Self.attr("data-filter");
+    //     postFilterList.removeClass("active");
+    //     Self.addClass("active");
 
-        $(".filter-layout").isotope({
-          filter: selector,
-          animationOptions: {
-            duration: 500,
-            easing: "linear",
-            queue: false
-          }
-        });
-        return false;
-      });
-    }
+    //     $(".filter-layout").isotope({
+    //       filter: selector,
+    //       animationOptions: {
+    //         duration: 500,
+    //         easing: "linear",
+    //         queue: false
+    //       }
+    //     });
+    //     return false;
+    //   });
+    // }
 
-    if ($(".post-filter.has-dynamic-filter-counter").length) {
-      // var allItem = $('.single-filter-item').length;
+    // if ($(".post-filter.has-dynamic-filter-counter").length) {
+    //   // var allItem = $('.single-filter-item').length;
 
-      var activeFilterItem = $(".post-filter.has-dynamic-filter-counter").find(
-        "li"
-      );
+    //   var activeFilterItem = $(".post-filter.has-dynamic-filter-counter").find(
+    //     "li"
+    //   );
 
-      activeFilterItem.each(function () {
-        var filterElement = $(this).data("filter");
-        var count = $(".filter-layout").find(filterElement).length;
-        $(this).append("<sup>[" + count + "]</sup>");
-      });
-    }
+    //   activeFilterItem.each(function () {
+    //     var filterElement = $(this).data("filter");
+    //     var count = $(".filter-layout").find(filterElement).length;
+    //     $(this).append("<sup>[" + count + "]</sup>");
+    //   });
+    // }
 
     //Testimonials Two
     if ($(".listing-details__gallery .bxslider").length) {

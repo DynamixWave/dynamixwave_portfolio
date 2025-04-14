@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!--Page Header Start-->
+<section class="page-header">
+    <div class="page-header-bg" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg.jpg' %})">
+    </div>
+    <div class="page-header-border"></div>
+    <div class="page-header-border page-header-border-two"></div>
+    <div class="page-header-border page-header-border-three"></div>
+    <div class="page-header-border page-header-border-four"></div>
+    <div class="page-header-border page-header-border-five"></div>
+    <div class="page-header-border page-header-border-six"></div>
+
+    <div class="page-header-shape-1"></div>
+    <div class="page-header-shape-2"></div>
+    <div class="page-header-shape-3"></div>
+
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li class="active">Pages</li>
+            </ul>
+            <h2>FAQS</h2>
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+<!--FAQ Page Start-->
+<section class="faq-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="faq-page__single">
+                    <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion2">
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h4>We Help to Create Visual Strategies</h4>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>There are many variations of passages the majority have suffered
+                                        alteration in some fo injected humour, or randomised words believable.
+                                    </p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion active">
+                            <div class="accrodion-title">
+                                <h4>digital and social markeitng expenses</h4>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>There are many variations of passages the majority have suffered
+                                        alteration in some fo injected humour, or randomised words believable.
+                                    </p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion last-chiled">
+                            <div class="accrodion-title">
+                                <h4>help to achieve marketing goals</h4>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>There are many variations of passages the majority have suffered
+                                        alteration in some fo injected humour, or randomised words believable.
+                                    </p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="faq-page__single faq-page__single-last">
+                    <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion1">
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h4>We Help to Create Visual Strategies</h4>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>There are many variations of passages the majority have suffered
+                                        alteration in some fo injected humour, or randomised words believable.
+                                    </p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion active">
+                            <div class="accrodion-title">
+                                <h4>digital and social markeitng expenses</h4>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>There are many variations of passages the majority have suffered
+                                        alteration in some fo injected humour, or randomised words believable.
+                                    </p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion last-chiled">
+                            <div class="accrodion-title">
+                                <h4>help to achieve marketing goals</h4>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>There are many variations of passages the majority have suffered
+                                        alteration in some fo injected humour, or randomised words believable.
+                                    </p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="faq-page__bottom">
+                    <p class="faq-page__bottom-text">qutiiz services built specifically for your business. <a
+                            href="about.html">Find Your Solution</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--FAQ Page End-->
+
+{% endblock %}

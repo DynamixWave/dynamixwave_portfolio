@@ -2872,6 +2872,7 @@ ul {
 .project-one__img {
   position: relative;
   display: block;
+  cursor: pointer;
   background-color: var(--qutiiz-black);
   width: 100%;
   border-radius: var(--qutiiz-bdr-radisu);
@@ -2886,6 +2887,7 @@ ul {
 
 .project-one__single:hover .project-one__img img {
   mix-blend-mode: normal;
+  /* cursor: pointer !important; */
 }
 
 .project-one__hover {
@@ -2906,6 +2908,7 @@ ul {
 
 .project-one__single:hover .project-one__hover {
   transform: scaleY(1);
+  /* cursor:  pointer !important; */
 }
 
 .project-one__hover:before {
@@ -18382,4 +18385,32 @@ body.megamenu-popup-active .mobile-nav__content {
   justify-content: center;
   font-weight: inherit !important;
   color: var(--qutiiz-white) !important;
+}
+
+.searchresult{
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  width: 100%;
+  border-radius:10px;
+}
+
+.searchdiv{
+  display: flex;
+  justify-content: space-around;
+  padding:10px;
+  border-bottom:rgb(150, 139, 139) 1px solid;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
+.searchdiv:hover{
+  background-color: var(--qutiiz-base);
+  color: white;
+  border-radius: 5px;
+}
+
+.searchdiv img{
+  border-radius: 10px;
 }

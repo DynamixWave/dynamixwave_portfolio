@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!--Page Header Start-->
+<section class="page-header">
+    <div class="page-header-bg" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg.jpg' %})">
+    </div>
+    <div class="page-header-border"></div>
+    <div class="page-header-border page-header-border-two"></div>
+    <div class="page-header-border page-header-border-three"></div>
+    <div class="page-header-border page-header-border-four"></div>
+    <div class="page-header-border page-header-border-five"></div>
+    <div class="page-header-border page-header-border-six"></div>
+
+    <div class="page-header-shape-1"></div>
+    <div class="page-header-shape-2"></div>
+    <div class="page-header-shape-3"></div>
+
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li class="active">Pages</li>
+            </ul>
+            <h2>Our team</h2>
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+
+<!--Team Page Start-->
+<section class="team-page">
+    <div class="container">
+        <div class="row">
+            {% for team in ourteam %}
+            <div class="col-xl-4 col-lg-6 col-md-6">
+                <!--Team One Single-->
+                <div class="team-one__single">
+                    <div class="team-one__img">
+                        <img src="{{ team.image.url }}" alt="">
+                    </div>
+                    
+                    <div class="team-one__content">
+                        <a href="{% url 'ourteam_detail' pk=team.id %}">
+                            <h4 class="team-one__name">{{ team.name }}</h4>
+                            <p class="team-one__title">{{ team.position }}</p>
+                        </a>
+                    </div>
+                    <div class="team-one__hover">
+                        <a href="{% url 'ourteam_detail' team.pk %}">
+                            <h4 class="team-one__hover-name">{{ team.name }}</h4>
+                            <p class="team-one__hover-title">{{ team.position }}</p>
+                        </a>
+                        <div class="team-one__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+<!--Team Page End-->
+
+<!--CTA One Start-->
+<section class="cta-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="cta-one__inner wow fadeInUp" data-wow-delay="100ms" data-wow-duration="2500ms">
+                    <div class="cta-one-shape-1"></div>
+                    <div class="cta-one-shape-2"></div>
+                    <div class="cta-one-shape-3"></div>
+                    <div class="cta-one__left">
+                        <h2 class="cta-one__title">the passion trying & skill can make <br> a top-performing
+                            company</h2>
+                    </div>
+                    <div class="cta-one__right">
+                        <a href="contact.html" class="cta-one__btn thm-btn">let’s get started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--CTA One End-->
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!--Page Header Start-->
+<section class="page-header">
+    <div class="page-header-bg" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg.jpg' %})">
+    </div>
+    <div class="page-header-border"></div>
+    <div class="page-header-border page-header-border-two"></div>
+    <div class="page-header-border page-header-border-three"></div>
+    <div class="page-header-border page-header-border-four"></div>
+    <div class="page-header-border page-header-border-five"></div>
+    <div class="page-header-border page-header-border-six"></div>
+
+    <div class="page-header-shape-1"></div>
+    <div class="page-header-shape-2"></div>
+    <div class="page-header-shape-3"></div>
+
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li class="active">Pages</li>
+            </ul>
+            <h2>404 error</h2>
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+        <!--Error Page Start-->
+        <section class="error-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="error-page__inner">
+                            <h2 class="error-page__title">404</h2>
+                            <h3 class="error-page__tagline">Sorry We Can't Find That Page!</h3>
+                            <p class="error-page__text">The page you are looking for was never existed.</p><br/>
+                            <!-- <form class="error-page__form">
+                                <div class="error-page__form-input">
+                                    <input type="search" placeholder="Search here">
+                                    <button type="submit"><i class="icon-magnifying-glass"></i></button>
+                                </div>
+                            </form> -->
+                            <a href="{% url 'HomeList' %}" class="thm-btn error-page__btn">go back to home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Error Page End-->
+
+{% endblock %}

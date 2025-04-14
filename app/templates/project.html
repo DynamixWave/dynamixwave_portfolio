@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!--Page Header Start-->
+<section class="page-header">
+    <div class="page-header-bg" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg.jpg' %})">
+    </div>
+    <div class="page-header-border"></div>
+    <div class="page-header-border page-header-border-two"></div>
+    <div class="page-header-border page-header-border-three"></div>
+    <div class="page-header-border page-header-border-four"></div>
+    <div class="page-header-border page-header-border-five"></div>
+    <div class="page-header-border page-header-border-six"></div>
+
+    <div class="page-header-shape-1"></div>
+    <div class="page-header-shape-2"></div>
+    <div class="page-header-shape-3"></div>
+
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{% url 'HomeList' %}">Home</a></li>
+                <li class="active">Services</li>
+            </ul>
+            <h2>Services</h2>
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+ <!--Projects Page Start-->
+ <section class="projects-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <ul class="project-filter style1 post-filter has-dynamic-filters-counter list-unstyled">
+                    <li data-filter="all" class="active"><span class="filter-text">All</span></li>
+                    {% for c in projectcategories %}
+                        <li data-filter="{{c.name}}"><span class="filter-text">{{c.name}}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row filter-layout">
+            <!-- <div class="col-xl-4 col-lg-6 col-md-6 filter-item bra photo web">
+                <div class="project-one__single">
+                    <div class="project-one__img">
+                        <img src="assets/images/resources/project-page-img-1.jpg" alt="">
+                        <div class="project-one__hover">
+                            <p class="project-one__tagline">Graphic</p>
+                            <h3 class="project-one__title"><a href="project-details.html">Fimlor Experience</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+<!--Projects Page End-->
+
+<script>
+    const ProjectList = [ {% for project in projects %}
+     {
+       id: "{{ project.id }}",
+       name: "{{ project.name }}",
+       category: "{{ project.category }}",
+       slug:"{{project.slug}}",
+       image:"{{project.image.url}}",
+       pj_url:"{{ project.pj_url }}",
+     }{% if not forloop.last %}, {% endif %}
+   {% endfor %}];
+
+
+   const ProjectCategories = document.querySelectorAll('.post-filter li');
+   let filteredProjects = ProjectList;
+   const Projectdiv = document.querySelector(".filter-layout");
+   
+   ProjectCategories.forEach((cate,index)=>{
+       cate.addEventListener("click",()=>ProjectCategories.forEach((c, index)=>{
+               c.classList.remove('active');
+               cate.classList.add('active');
+               let selector = cate.getAttribute('data-filter');
+
+               if(selector=="all"){
+                   filteredProjects = ProjectList;
+               }else{
+               filteredProjects = ProjectList.filter((project) => {
+                   return project.category === selector;
+               })}
+               ProjectFunction();
+           }))
+   })
+   const ProjectFunction = () => {
+       Projectdiv.innerHTML = "";  
+       filteredProjects.forEach((project)=>{                
+                   const projectcard = document.createElement('div');
+                   projectcard.classList.add('col-xl-4', 'col-lg-6',  'col-md-6', 'filter-item' , 'bra', 'photo', 'web');
+                   projectcard.innerHTML = ` <div class="project-one__single">
+                   <div class="project-one__img">
+                       <img src="${ project.image }" alt="">
+                       <div class="project-one__hover">
+                           <p class="project-one__tagline">${project.category}</p>
+                           <h3 class="project-one__title"><a href="${ project.pj_url }">${ project.name }</a>
+                           </h3>
+                       </div>
+                   </div>
+               </div>`;
+               Projectdiv.append(projectcard);
+               })
+   }
+
+   ProjectFunction()
+</script>
+
+{% endblock %}
