@@ -22,7 +22,7 @@
         <div class="page-header__inner">
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="{% url 'service_list' %}">Services</a></li>
                 <li class="active">services Details</li>
             </ul>
             {% for service in services  %}
@@ -66,12 +66,12 @@
                         <h2 class="service-details__need-help-title">Best Quality <br> services</h2>
                         <div class="service-details__need-help-contact">
                             <p>Call us Anytime</p>
-                            <a href="tel:926668880000">+ 959 768 049 426</a>
+                            <a href="tel:959768049426">+ 959 768 049 426</a>
                         </div>
                     </div>
-                    <div class="service-details__download">
+                    <!-- <div class="service-details__download">
                         <a href="#" class="service-details__download-btn">Download our broucher</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-xl-8 col-lg-7">
@@ -82,7 +82,7 @@
                     </div>
                     <div class="service-details__content">
                         <h2 class="service-details__title">{{ service.name }}</h2>
-                        <p class="service-details__text-1">{{ service.content }}</p>
+                        <p class="service-details__text-1">{{ service.content|safe }}</p>
                         <!-- <p class="service-details__text-2">Lorem ipsum is simply free text dolor sit amet,
                             consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labo lonm
                             andhn.</p>
@@ -101,7 +101,7 @@
                                         {% endif %}
                                     </span>
                                     <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_1 }}</h4>
-                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_1_content }}</p>
+                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_1_content|safe }}</p>
                                 </div>
                             </li>
                             <li class="service-details__bottom-single">
@@ -112,7 +112,7 @@
                                         {% endif %}
                                     </span>
                                     <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_2 }}</h4>
-                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_2_content }}</p>
+                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_2_content|safe }}</p>
                                 </div>
                             </li>
                             <li class="service-details__bottom-single">
@@ -123,7 +123,7 @@
                                         {% endif %}
                                     </span>
                                     <h4 class="service-details__bottom-title">{{ service.service_detail_icon_title_3 }}</h4>
-                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_3_content }}</p>
+                                    <p class="service-details__bottom-text">{{ service.service_detail_icon_3_content|safe }}</p>
                                 </div>
                             </li>
                         </ul>
@@ -133,17 +133,19 @@
                             <div class="col-xl-6">
                                 <div class="service-details__benefits-content">
                                     <h3 class="service-details__benefits-title">{{ service.benefits_title }}</h3>
-                                    <p class="service-details__benefits-text">{{ service.benefits_content }}</p>
+                                    <p class="service-details__benefits-text">{{ service.benefits_content|safe }}</p>
                                     <ul class="list-unstyled service-details__benefits-list">
+                                        {% for i in service.points %}
                                         <li>
                                             <div class="icon">
                                                 <span class="icon-draw-check-mark"></span>
                                             </div>
                                             <div class="text">
-                                                <p>Nsectetur cing elit</p>
+                                                <p>{{i}}</p>
                                             </div>
                                         </li>
-                                        <li>
+                                        {% endfor %}
+                                        <!-- <li>
                                             <div class="icon">
                                                 <span class="icon-draw-check-mark"></span>
                                             </div>
@@ -166,7 +168,7 @@
                                             <div class="text">
                                                 <p>If you are going to use a pass</p>
                                             </div>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -188,7 +190,7 @@
                                 </div>
                                 <div class="accrodion-content">
                                     <div class="inner">
-                                        <p>{{ a.accrodion_content }}</p>
+                                        <p>{{ a.accrodion_content|safe }}</p>
                                     </div><!-- /.inner -->
                                 </div>
                             </div>

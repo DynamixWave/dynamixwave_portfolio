@@ -27,14 +27,17 @@ def Blogdetail(request, pk):
 
 def BlogCategoryFilterView(request, category_id):
     category = get_object_or_404(BlogCategoryModel, id=category_id)
-    blogs = BlogModel.objects.filter(category=category)
+    blogs = BlogModel.objects.filter(category=category).order_by('-id')[:1]
+    
+    latestblogs = BlogModel.objects.filter(category=category).order_by('-id')[:5]
     
     context = {
         'blogs': blogs,
+        'latestblogs': latestblogs,
         'selected_category': category,
         'categories': BlogCategoryModel.objects.all(),
     }
-    return render(request, 'category.html', context)
+    return render(request, 'blog_by_category.html', context)
 
 
 

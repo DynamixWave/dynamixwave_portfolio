@@ -43,9 +43,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="main-slider__content">
-                                <p>Welcome to our digital marketing agency</p>
-                                <h2>{{ slide.title }}</h2>
-                                <a href="about.html" class="thm-btn">Discover More</a>
+                                <p>{{ slide.title }}</p>
+                                <h2>{{ slide.content|safe }}</h2>
+                                <a href="{{ slide.discover_more }}" class="thm-btn">Discover More</a>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="services-one__top-text-box">
-                        <p class="services-one__top-text">{{ service.content }}</p>
+                        <p class="services-one__top-text">{{ service.content|safe }}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -105,9 +105,9 @@
                                 </span>
                             </div>
                             <div class="services-one__count"></div>
-                            <h3 class="services-one__title"><a href="website-development.html"> {{ sl.name|linebreaksbr }}
+                            <h3 class="services-one__title"><a href="{% url 'service_detail' sl.id %}"> {{ sl.name|linebreaksbr }}
                                     </a></h3>
-                            <a class="services-one__arrow" href="website-development.html"><span
+                            <a class="services-one__arrow" href="{% url 'service_detail' sl.id %}"><span
                                     class="icon-right-arrow"></span></a>
                         </li>
                         {% endfor %}
@@ -118,8 +118,8 @@
         <div class="services-one__find-solutions">
             <div class="row">
                 <div class="col-xl-12">
-                    <p class="services-one__find-solutions-text">qutiiz services built specifically for your
-                        business. <a href="about.html">Find Your Solution</a></p>
+                    <p class="services-one__find-solutions-text">DynamixWave services built specifically for your
+                        business. <a href="{% url 'about_list' %}">Find Your Solution</a></p>
                 </div>
             </div>
         </div>
@@ -374,15 +374,19 @@
                             <img src="{{ choose.image_2.url }}" alt="">
                         </div>
                         <ul class="list-unstyled why-choose-one__points">
+                            {% for i in choose.points %}
+                            
                             <li>
                                 <div class="icon">
                                     <span class="icon-draw-check-mark"></span>
                                 </div>
                                 <div class="text">
-                                    <p>Nsectetur cing elit</p>
+                                    <p>{{i}}</p>
                                 </div>
                             </li>
-                            <li>
+                            
+                            {% endfor %}
+                            <!-- <li>
                                 <div class="icon">
                                     <span class="icon-draw-check-mark"></span>
                                 </div>
@@ -405,7 +409,7 @@
                                 <div class="text">
                                     <p>Nisl sit amet tellus</p>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -444,10 +448,10 @@
                                 <p class="team-one__hover-title">{{ team.position }}</p>
                             </a>
                             <div class="team-one__social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="{{ team.viber }}"><i class="fab fa-viber"></i></a>
+                                <a href="{{ team.telegram }}"><i class="fab fa-telegram"></i></a>
+                                <a href="{{ team.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -483,7 +487,7 @@
                     <p class="testimonial-one__text">{{ feedback.content|safe }}</p>
                     <div class="testimonial-one__client-info">
                         <div class="testimonial-one__client-img">
-                            <img src="{{ feedback.image.url }}" alt="">
+                            <img src="{{ feedback.image.url }}" alt="" width="60" height="60">
                             <div class="testimonial-one__quote">
                                 <img src="{% static 'assets/images/testimonial/testimonial-one-quote.png' %}" alt="">
                             </div>
@@ -520,7 +524,7 @@
             <div class="qutiiz-ready__icon">
                 <span class="icon-wealth"></span>
             </div>
-            <h2 class="qutiiz-ready__title">qutiiz is a ready to <span>protect</span> <br> your businesses</h2>
+            <h2 class="qutiiz-ready__title">DynamixWave is a ready to <span>protect</span> <br> your businesses</h2>
         </div>
     </div>
 </section>
@@ -551,8 +555,7 @@
                                             </div>
                                             <div class="text">
                                                 <h4>Highest Success Rates</h4>
-                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
-                                                    quis bibendum.</p>
+                                                <p>From project initiation to final deployment — the websites we build are high-performing, customer-attracting, and truly deliver successful results that businesses can trust.</p>
                                             </div>
                                         </li>
                                         <li>
@@ -560,9 +563,8 @@
                                                 <span class="icon-draw-check-mark"></span>
                                             </div>
                                             <div class="text">
-                                                <h4>we grow businesses</h4>
-                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
-                                                    quis bibendum.</p>
+                                                <h4>We Help Businesses Grow</h4>
+                                                <p>We create websites tailored to your business needs with the best strategies to help you stand out in the market and attract more customers.</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -575,14 +577,14 @@
                                             <div class="tabs-content__experience-icon">
                                                 <span class="icon-consulting"></span>
                                             </div>
-                                            <h3 class="tabs-content__experience-title">We have over 18 years of
+                                            <h3 class="tabs-content__experience-title">We have over 5 years of
                                                 experience</h3>
-                                            <a href="about.html" class="tabs-content__experience-btn">Read
+                                            <a href="{% url 'about_list' %}" class="tabs-content__experience-btn">Read
                                                 More</a>
                                         </div>
                                         <div class="tabs-content__experience-img">
-                                            <img src="assets/images/resources/tabs-content-experience-img.jpg"
-                                                alt="">
+                                            <img src="{% static 'assets/images/resources/business_growth.jpg' %}"
+                                                alt="" width="250" height="250">
                                         </div>
                                     </div>
                                 </div>
@@ -602,9 +604,8 @@
                                                 <span class="icon-draw-check-mark"></span>
                                             </div>
                                             <div class="text">
-                                                <h4>Highest Success Rates</h4>
-                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
-                                                    quis bibendum.</p>
+                                                <h4>Smart Financial Strategies</h4>
+                                                <p>We provide tailored financial advice that helps you manage budgets, reduce costs, and maximize business profits — every decision backed by data and experience.</p>
                                             </div>
                                         </li>
                                         <li>
@@ -612,9 +613,8 @@
                                                 <span class="icon-draw-check-mark"></span>
                                             </div>
                                             <div class="text">
-                                                <h4>we grow businesses</h4>
-                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
-                                                    quis bibendum.</p>
+                                                <h4>We Guide Sustainable Growth</h4>
+                                                <p>Our experts help align your finances with your long-term goals, ensuring every investment supports your vision for scalable and stable growth.</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -627,13 +627,13 @@
                                             <div class="tabs-content__experience-icon">
                                                 <span class="icon-consulting"></span>
                                             </div>
-                                            <h3 class="tabs-content__experience-title">We have over 18 years of
+                                            <h3 class="tabs-content__experience-title">We have over 5 years of
                                                 experience</h3>
-                                            <a href="about.html" class="tabs-content__experience-btn">Read
+                                            <a href="{% url 'about_list' %}" class="tabs-content__experience-btn">Read
                                                 More</a>
                                         </div>
                                         <div class="tabs-content__experience-img">
-                                            <img src="assets/images/resources/tabs-content-experience-img.jpg"
+                                            <img src="{% static 'assets/images/resources/tabs-content-experience-img.jpg' %}"
                                                 alt="">
                                         </div>
                                     </div>
@@ -654,9 +654,9 @@
                                                 <span class="icon-draw-check-mark"></span>
                                             </div>
                                             <div class="text">
-                                                <h4>Highest Success Rates</h4>
-                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
-                                                    quis bibendum.</p>
+                                                <h4>Results-Driven Marketing</h4>
+                                                <p>From SEO to social media, we craft marketing solutions that bring visibility,
+                                                    engagement, and conversions — built to grow your brand online.</p>
                                             </div>
                                         </li>
                                         <li>
@@ -664,9 +664,9 @@
                                                 <span class="icon-draw-check-mark"></span>
                                             </div>
                                             <div class="text">
-                                                <h4>we grow businesses</h4>
-                                                <p>Lorem nibh vel velit a aliqu. Aenean so tudin, lorem is text
-                                                    quis bibendum.</p>
+                                                <h4>We Elevate Your Brand</h4>
+                                                <p>With targeted campaigns and creative strategies,
+                                                    we help your business stand out and connect with the right audience at the right time.</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -679,14 +679,14 @@
                                             <div class="tabs-content__experience-icon">
                                                 <span class="icon-consulting"></span>
                                             </div>
-                                            <h3 class="tabs-content__experience-title">We have over 18 years of
+                                            <h3 class="tabs-content__experience-title">We have over 5 years of
                                                 experience</h3>
-                                            <a href="about.html" class="tabs-content__experience-btn">Read
+                                            <a href="{% url 'about_list' %}" class="tabs-content__experience-btn">Read
                                                 More</a>
                                         </div>
                                         <div class="tabs-content__experience-img">
-                                            <img src="assets/images/resources/tabs-content-experience-img.jpg"
-                                                alt="">
+                                            <img src="{% static 'assets/images/resources/Digital-marketing.jpg' %}"
+                                                alt="" width="200" height="200">
                                         </div>
                                     </div>
                                 </div>
@@ -697,8 +697,8 @@
             </div>
         </div>
         <div class="financial-advice__bottom">
-            <p class="financial-advice__bottom-text">qutiiz services built specifically for your business. <a
-                    href="about.html">Find Your Solution</a></p>
+            <p class="financial-advice__bottom-text">DynamixWave services built specifically for your business. <a
+                    href="{% url 'about_list' %}">Find Your Solution</a></p>
         </div>
     </div>
 </section>
@@ -742,7 +742,7 @@
                         </h3>
                         <div class="blog-one__person">
                             <div class="blog-one__person-img">
-                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
+                                <img src="{% static 'assets/images/logo.png' %}" alt="" width="30" height="30">
                             </div>
                             <div class="blog-one__person-content">
                                 <p>by Admin</p>
@@ -777,7 +777,7 @@
                             company</h2>
                     </div>
                     <div class="cta-one__right">
-                        <a href="contact.html" class="cta-one__btn thm-btn">let’s get started</a>
+                        <a href="{% url 'contact' %}" class="cta-one__btn thm-btn">let’s get started</a>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@ from .models import *
 
 
 class HomeSliderModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'image', 'discover_more']
+    list_display = ['id', 'title','content', 'image', 'discover_more']
     search_fields = ['id', 'title']
     list_filter = ['id', 'title']
     
@@ -16,7 +16,7 @@ class OurServiceModelAdmin(admin.ModelAdmin):
     list_filter = ['id', 'title']
     
 class OurServiceListModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name','category', 'icon_image', 'content', 'image_inner', 
+    list_display = ['id', 'name','category', 'icon_image', 'content', 'image_inner', 'points', 
                     'service_detail_icon_1',
                     'service_detail_icon_title_1',
                     'service_detail_icon_1_content',
@@ -67,7 +67,7 @@ class CounterModelAdmin(admin.ModelAdmin):
     list_filter = ['id', 'name']
     
 class WhyChooseUsModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'content', 'image_1', 'image_2']
+    list_display = ['id', 'title', 'content', 'image_1', 'image_2', 'points']
     search_fields = ['id', 'title','content']
     list_filter = ['id', 'title']
     

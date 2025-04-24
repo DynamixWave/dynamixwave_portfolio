@@ -48,10 +48,10 @@
                             <p class="team-details__top-title">{{ team.position }}</p>
                             <h3 class="team-details__top-name">{{ team.name }}</h3>
                             <div class="team-details__social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="{{ team.viber }}"><i class="fab fa-viber"></i></a>
+                                <a href="{{ team.telegram }}"><i class="fab fa-telegram"></i></a>
+                                <a href="{{ team.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
                             </div>
                             <p class="team-details__top-text-1">{{ team.title }}</p>
                             <p class="team-details__top-text-2">{{ team.content|safe }}</p>

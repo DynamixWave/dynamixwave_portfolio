@@ -10,11 +10,11 @@
                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                     <ul class="main-menu__list">
                         <li><a href="{% url 'HomeList' %}">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#0">Pages</a>
+                        <li class="">
+                            <a href="{% url 'about_list' %}">About</a>
                             <ul>
-                                <li><a href="{% url 'about_list' %}">About</a></li>
-                                <li><a href="{% url 'ourteam' %}">Team</a></li>
+                                <!-- <li><a href="{% url 'about_list' %}">About</a></li> -->
+                                <!-- <li><a href="{% url 'ourteam' %}">Team</a></li> -->
                                 <!-- <li><a href="team-details.html">Team Details</a></li> -->
                                 <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
                                 <!-- <li><a href="why-choose.html">Why Choose</a></li> -->
@@ -51,6 +51,7 @@
                             </ul> -->
                         </li>
                         <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'ourteam' %}">Team</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                     </div>
                     <div class="main-menu-wrapper__call-number">
                         <p>Call Anytime</p>
-                        <h5><a href="tel:926668880000">+ 959 768 049 426</a></h5>
+                        <h5><a href="tel:959768049426">+ 959 768 049 426</a></h5>
                     </div>
                 </div>
             </div>

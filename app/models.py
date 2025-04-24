@@ -38,6 +38,7 @@ class OurServiceListModel(models.Model):
     icon_image = models.ImageField(upload_to='OurService')
     image_inner = models.ImageField(upload_to='OurService', null=True, blank=True)
     content = RichTextField(null=True, blank=True)
+    points = models.JSONField(null=True, blank=True)
     service_detail_icon_1 = models.ImageField(upload_to='OurService', null=True, blank=True)
     service_detail_icon_title_1 = models.CharField(max_length=1000, null=True,blank=True) 
     service_detail_icon_1_content = RichTextField(null=True, blank=True)
@@ -112,6 +113,7 @@ class WhyChooseUsModel(models.Model):
     content = RichTextField()
     image_1 = models.ImageField(upload_to='WhyChooseUs')
     image_2 = models.ImageField(upload_to='WhyChooseUs')
+    points = models.JSONField(null=True, blank=True)
     
     def __str__(self):
         return self.title

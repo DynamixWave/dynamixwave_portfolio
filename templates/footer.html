@@ -16,10 +16,10 @@
                 </div>
                 <div class="site-footer__top-right">
                     <div class="site-footer__top-right-social">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1FJA1ddiG8/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@dynamixwave?_t=ZS-8vXnHR4wrI8&_r=1"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://t.me/dynamixwave"><i class="fab fa-telegram"></i></a>
+                        <a href="{% url '404' %}"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
     </div>
     <div class="site-footer__middle">
         <div class="site-footer-shape"
-            style="background-image: url(assets/images/shapes/site-footer-shape.png)"></div>
+            style="background-image: url({% static 'assets/images/shapes/site-footer-shape.png' %})"></div>
         <div class="container">
             <div class="site-footer__middle-inner">
                 <div class="row">
@@ -35,8 +35,9 @@
                         <div class="footer-widget__column footer-widget__about">
                             <h3 class="footer-widget__title">About</h3>
                             <div class="footer-widget__about-text-box">
-                                <p class="footer-widget__about-text">Lorem ipsum dolor sit amet, consect etur
-                                    adi pisicing elit sed do eiusmod.</p>
+                                <p class="footer-widget__about-text">Why choose DynamixWave web design and development services?
+                                    Because we serve a potent mix of web design & development,
+                                    brand strategy, and digital marketing.</p>
                             </div>
                             <ul class="footer-widget__about-contact list-unstyled">
                                 <li>
@@ -44,7 +45,7 @@
                                         <i class="fas fa-phone-square-alt"></i>
                                     </div>
                                     <div class="text">
-                                        <a href="tel:926668880000">+ 959 768 049 426</a>
+                                        <a href="tel:959768049426">+ 959 768 049 426</a>
                                     </div>
                                 </li>
                                 <li>
@@ -52,7 +53,7 @@
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="text">
-                                        <a href="">info@dynamixwave.com</a>
+                                        <a href="mailto:info@dynamixwave.com">info@dynamixwave.com</a>
                                     </div>
                                 </li>
                                 <!-- <li>
@@ -70,10 +71,10 @@
                         <div class="footer-widget__column footer-widget__links clearfix">
                             <h3 class="footer-widget__title">Links</h3>
                             <ul class="footer-widget__links-list list-unstyled clearfix">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="about.html">Our Mission</a></li>
-                                <li><a href="team.html">Meet the Team</a></li>
-                                <li><a href="project.html">Our Projects</a></li>
+                                <li><a href="{% url 'about_list' %}">About Us</a></li>
+                                <li><a href="{% url '404' %}">Our Mission</a></li>
+                                <li><a href="{% url 'ourteam' %}">Meet the Team</a></li>
+                                <li><a href="{% url 'project_list' %}">Our Projects</a></li>
                                 <li><a href="{% url 'contact' %}">Contact</a></li>
                                 <li><a href="{% url 'faqs_list' %}">FAQS</a></li>
                             </ul>
@@ -83,10 +84,10 @@
                         <div class="footer-widget__column footer-widget__explore clearfix">
                             <h3 class="footer-widget__title">Explore</h3>
                             <ul class="footer-widget__explore-list list-unstyled clearfix">
-                                <li><a href="services.html">What We Offer</a></li>
-                                <li><a href="about.html">Our Story</a></li>
-                                <li><a href="blog.html">Latest News</a></li>
-                                <li><a href="about.html">Help Center</a></li>
+                                <li><a href="{% url 'service_list' %}">What We Offer</a></li>
+                                <li><a href="{% url '404' %}">Our Story</a></li>
+                                <li><a href="{% url 'blog_list' %}">Latest News</a></li>
+                                <li><a href="{% url 'about_list' %}">Help Center</a></li>
                             </ul>
                         </div>
                     </div>
@@ -118,13 +119,13 @@
                     <div class="col-xl-12">
                         <div class="site-footer__bottom-inner">
                             <div class="site-footer__bottom-left">
-                                <p class="site-footer__bottom-text">© Copyrights, 2021 <a
-                                        href="#">BracketWeb</a></p>
+                                <p class="site-footer__bottom-text">© Copyrights, 2025 <a
+                                        href="{% url 'HomeList' %}">DynamixWave</a></p>
                             </div>
                             <div class="site-footer__bottom-right">
                                 <ul class="list-unstyled site-footer__bottom-menu">
-                                    <li><a href="about.html">Terms & Conditions</a></li>
-                                    <li><a href="about.html">Privacy Policy</a></li>
+                                    <li><a href="{% url '404' %}">Terms & Conditions</a></li>
+                                    <li><a href="{% url '404' %}">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>

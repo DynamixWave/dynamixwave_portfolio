@@ -17,7 +17,6 @@ def Contact(request):
             recipient_list=['dynamixwave@gmail.com'],
             fail_silently=False,
         )
-        
         contact = ContactModel.objects.create(
             name=name,
             email=email,
@@ -26,12 +25,11 @@ def Contact(request):
             message=user_message,
         )
         
-        
         context = {
             'contact':contact,
             'name':name,
         }
-        return render(request, 'contact.html', context)
+        return render(request, 'contact.html')
     else:
         return render(request, 'contact.html')
     

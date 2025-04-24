@@ -58,26 +58,30 @@
                             </li>
                         </ul>
                         <h3 class="blog-details__title">{{ blog.title }}</h3>
-                        <p class="blog-details__text-1">{{ blog.content }}</p>
+                        <p class="blog-details__text-1">{{ blog.content|safe }}</p>
                         <p class="blog-details__text-2"></p>
                     </div>
                     <div class="blog-details__bottom">
                         <p class="blog-details__tags">
                             <span>Tags</span>
-                            <a href="#">Marketing</a>
-                            <a href="#">performance</a>
+                            {% for cat in categories|slice:":4"  %}
+                            <a href="{% url 'blog_category_filter' cat.id %}">{{ cat.name }}</a>
+                            {% endfor %}
+                            
+                            
                         </p>
                         <div class="blog-details__social-list">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/share/1FJA1ddiG8/"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.tiktok.com/@dynamixwave?_t=ZS-8vXnHR4wrI8&_r=1"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://t.me/dynamixwave"><i class="fab fa-telegram"></i></a>
+                            <a href="{% url '404' %}"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                     <div class="blgo-details__pagenation-box">
                         <ul class="list-unstyled blog-details__pagenation">
-                            <li>we build products that <br> make business grow</li>
-                            <li>we build products that <br> make business grow</li>
+                            {% for blog in latestblogs|slice:":2" %}
+                            <li>{{ blog.title }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <!-- <div class="comment-one">

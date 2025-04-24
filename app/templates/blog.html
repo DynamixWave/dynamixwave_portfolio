@@ -56,18 +56,18 @@
                                 {% endfor %}
                             </li>
 
-                            <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
-                            </li>
+                            <!-- <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+                            </li> -->
                         </ul>
                         <h3 class="blog-one__title">
                             <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
                         </h3>
                         <div class="blog-one__person">
                             <div class="blog-one__person-img">
-                                <img src="assets/images/blog/blog-one-person-img-1.jpg" alt="">
+                                <img src="{% static 'assets/images/logo.png' %}" alt="" width="30" height="30">
                             </div>
                             <div class="blog-one__person-content">
-                                <p>by Mike Hardson</p>
+                                <p>by Admin</p>
                             </div>
                         </div>
                     </div>
