@@ -1468,7 +1468,7 @@ ul {
 }
 
 .main-slider p {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--qutiiz-white);
   font-family: var(--qutiiz-font-two);
   text-transform: uppercase;
@@ -1491,7 +1491,7 @@ ul {
   transform: translateY(120px);
   transition-delay: 1000ms;
   transition: transform 2000ms ease, opacity 2000ms ease;
-  font-size: 130px;
+  font-size: 80px;
   line-height: 100px;
   text-transform: uppercase;
   font-weight: 400;
@@ -8746,7 +8746,7 @@ ul {
   align-items: center;
   justify-content: center;
   right: 30px;
-  bottom: -57px;
+  bottom: -40px;
   width: 115px;
   height: 115px;
   background: #ffffff;
@@ -8829,6 +8829,7 @@ ul {
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 13px;
+  margin-top: 4px;
 }
 
 .services-three__title a {

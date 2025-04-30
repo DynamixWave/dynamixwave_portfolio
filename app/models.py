@@ -59,6 +59,7 @@ class OurServiceListModel(models.Model):
     
 class AccrodionModel(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    accrodion = models.ForeignKey(OurServiceListModel, on_delete=models.CASCADE, null=True ,blank=True, related_name='accrodion_value')
     accrodion_title = models.CharField(max_length=1000, null=True, blank=True)
     accrodion_content = RichTextField(null=True, blank=True)
     

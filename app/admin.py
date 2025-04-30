@@ -15,6 +15,9 @@ class OurServiceModelAdmin(admin.ModelAdmin):
     search_fields = ['id', 'title']
     list_filter = ['id', 'title']
     
+class AccrodionModelInline(admin.TabularInline):
+    model = AccrodionModel
+    
 class OurServiceListModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name','category', 'icon_image', 'content', 'image_inner', 'points', 
                     'service_detail_icon_1',
@@ -30,12 +33,12 @@ class OurServiceListModelAdmin(admin.ModelAdmin):
                     'benefits_image',
                     'benefits_content',]
     search_fields = ['id', 'name', 'category']
+    inlines = [AccrodionModelInline]
     list_filter = ['id', 'name', 'category']
+
+# class AccrodionModelAdmin(admin.ModelAdmin):
+#     list_display = ['accrodion_title',]
     
-class AccrodionModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'accrodion_title']
-    search_fields = ['id', 'accrodion_title']
-    list_filter = ['id', 'accrodion_title']
     
     
 class OurServiceListCategoryAdmin(admin.ModelAdmin):
@@ -129,7 +132,7 @@ admin.site.register(HomeSliderModel, HomeSliderModelAdmin)
 admin.site.register(OurServiceModel, OurServiceModelAdmin)
 admin.site.register(OurServiceListModel, OurServiceListModelAdmin)
 admin.site.register(OurServiceListCategory, OurServiceListCategoryAdmin)
-admin.site.register(AccrodionModel, AccrodionModelAdmin)
+
 admin.site.register(OurPartnerModel, OurPartnerModelAdmin)
 admin.site.register(ProjectCategoryModel, ProjectCategoryModelAdmin)
 admin.site.register(ProjectModel, ProjectModelAdmin)
