@@ -119,7 +119,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <p class="services-one__find-solutions-text">DynamixWave services built specifically for your
-                        business. <a href="{% url 'about_list' %}">Find Your Solution</a></p>
+                        business. <a href="{% url 'project_list' %}">Find Your Solution</a></p>
                 </div>
             </div>
         </div>
@@ -448,10 +448,10 @@
                                 <p class="team-one__hover-title">{{ team.position }}</p>
                             </a>
                             <div class="team-one__social">
-                                <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
-                                <a href="{{ team.viber }}"><i class="fab fa-viber"></i></a>
-                                <a href="{{ team.telegram }}"><i class="fab fa-telegram"></i></a>
-                                <a href="{{ team.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
+                                <a href="{{ team.facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                                <a href="tel:{{ team.viber }}" target="_blank"><i class="fab fa-viber"></i></a>
+                                <a href="{{ team.telegram }}" target="_blank"><i class="fab fa-telegram"></i></a>
+                                <a href="tel:{{ team.whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -465,7 +465,7 @@
 <!--Team One End-->
 
 <!--Testimonial One Start-->
-<section class="testimonial-one">
+<!-- <section class="testimonial-one">
     <div class="testimonial-one__inner">
         <div class="container">
             <div class="row">
@@ -481,7 +481,7 @@
         </div>
         <div class="testimonial-one__right">
             <div class="testimonial-one__carousel owl-theme owl-carousel">
-                <!--Testimonial One Single-->
+                
                 {% for feedback in customerfeedback %}
                 <div class="testimonial-one__single">
                     <p class="testimonial-one__text">{{ feedback.content|safe }}</p>
@@ -510,7 +510,7 @@
         </div>
 
     </div>
-</section>
+</section> -->
 <!--Testimonial One End-->
 
 <!--Qutiiz Ready Start-->
@@ -577,7 +577,7 @@
                                             <div class="tabs-content__experience-icon">
                                                 <span class="icon-consulting"></span>
                                             </div>
-                                            <h3 class="tabs-content__experience-title">We have over 5 years of
+                                            <h3 class="tabs-content__experience-title">We have over 4 years of
                                                 experience</h3>
                                             <a href="{% url 'about_list' %}" class="tabs-content__experience-btn">Read
                                                 More</a>
@@ -627,7 +627,7 @@
                                             <div class="tabs-content__experience-icon">
                                                 <span class="icon-consulting"></span>
                                             </div>
-                                            <h3 class="tabs-content__experience-title">We have over 5 years of
+                                            <h3 class="tabs-content__experience-title">We have over 4 years of
                                                 experience</h3>
                                             <a href="{% url 'about_list' %}" class="tabs-content__experience-btn">Read
                                                 More</a>
@@ -679,7 +679,7 @@
                                             <div class="tabs-content__experience-icon">
                                                 <span class="icon-consulting"></span>
                                             </div>
-                                            <h3 class="tabs-content__experience-title">We have over 5 years of
+                                            <h3 class="tabs-content__experience-title">We have over 4 years of
                                                 experience</h3>
                                             <a href="{% url 'about_list' %}" class="tabs-content__experience-btn">Read
                                                 More</a>
@@ -698,7 +698,7 @@
         </div>
         <div class="financial-advice__bottom">
             <p class="financial-advice__bottom-text">DynamixWave services built specifically for your business. <a
-                    href="{% url 'about_list' %}">Find Your Solution</a></p>
+                    href="{% url 'project_list' %}">Find Your Solution</a></p>
         </div>
     </div>
 </section>

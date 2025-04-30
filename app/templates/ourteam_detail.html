@@ -48,13 +48,13 @@
                             <p class="team-details__top-title">{{ team.position }}</p>
                             <h3 class="team-details__top-name">{{ team.name }}</h3>
                             <div class="team-details__social">
-                                <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
+                                <a href="{{ team.facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
                                 <a href="{{ team.viber }}"><i class="fab fa-viber"></i></a>
-                                <a href="{{ team.telegram }}"><i class="fab fa-telegram"></i></a>
+                                <a href="{{ team.telegram }}" target="_blank"><i class="fab fa-telegram"></i></a>
                                 <a href="{{ team.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
                             </div>
-                            <p class="team-details__top-text-1">{{ team.title }}</p>
-                            <p class="team-details__top-text-2">{{ team.content|safe }}</p>
+                            <p class="team-details__top-text-1">{{ team.title|default:"" }}</p>
+                            <p class="team-details__top-text-2">{{ team.content|safe|default:"" }}</p>
                             <!-- <p class="team-details__top-text-3">If you are going to use a passage of Lorem
                                 Ipsum, you need to be sure there isn't anything embarrassing hidden in the
                                 middle of text.</p> -->
@@ -67,7 +67,7 @@
 
         <div class="team-details__certificate">
             <div class="team-details__certificate-title text-center">
-                <h2>{{ team.certificate_title }}</h2>
+                <h2>{{ team.certificate_title|default:"" }}</h2>
             </div>
 
             <ul class="team-details__certificate-list list-unstyled">

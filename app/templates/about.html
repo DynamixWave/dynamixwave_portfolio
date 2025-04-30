@@ -139,7 +139,7 @@
             <div class="col-xl-12">
                 <div class="qutiiz-ready-two__inner">
                     <h2 class="qutiiz-ready-two__title">DynamixWave is a ready to protect <br> your businesses</h2>
-                    <a href="{% url 'about_list' %}" class="qutiiz-ready-two__btn thm-btn">Discover more</a>
+                    <a href="{% url 'project_list' %}" class="qutiiz-ready-two__btn thm-btn">Discover more</a>
                 </div>
             </div>
         </div>
@@ -176,9 +176,9 @@
                             </a>
                             <div class="team-one__social">
                                 <a href="{{ team.facebook }}"><i class="fab fa-facebook"></i></a>
-                                <a href="{{ team.viber }}"><i class="fab fa-viber"></i></a>
+                                <a href="tel:{{ team.viber }}"><i class="fab fa-viber"></i></a>
                                 <a href="{{ team.telegram }}"><i class="fab fa-telegram"></i></a>
-                                <a href="{{ team.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
+                                <a href="tel:{{ team.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
 <!--Team One End-->
 
 <!--Testimonial Two Start-->
-<section class="testimonial-two clearfix">
+<!-- <section class="testimonial-two clearfix">
     <div class="testimonial-two-map"
         style="background-image: url({% static 'assets/images/shapes/testimonial-two-map.png' %})"></div>
     <div class="container">
@@ -203,7 +203,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="testimonial-two__carousel owl-theme owl-carousel">
-                    <!--Testimonial One Single-->
+                   
                     {% for feedback in customerfeedback %}
                     <div class="testimonial-one__single">
                         <p class="testimonial-one__text">{{ feedback.content|safe }}
@@ -227,7 +227,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!--Testimonial Two End-->
 
 <!--Brand One Start-->
